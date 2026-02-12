@@ -1,114 +1,108 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Container } from "@/components/Container";
-import { site } from "@/lib/content";
+import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import Container from "@/components/ui/Container";
+import { ButtonLink } from "@/components/ui/button";
+import { cn } from "@/lib/cn";
 
-const nav = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/clients", label: "Clients" },
-  { href: "/approach", label: "Approach" },
-  { href: "/leadership", label: "Leadership" },
-  { href: "/compliance", label: "Compliance" },
-  { href: "/contact", label: "Contact" },
-];
-
-export function SiteHeader() {
+export default function SiteHeader() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Close menu on route changes via basic escape/resize UX
+  const links = useMemo(
+    () => [
+      { href: "/about", label: "About" },
+      { href: "/services", label: "Services" },
+      { href: "/team", label: "Team" },
+      { href: "/contact", label: "Contact" },
+    ],
+    []
+  );
+
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    function onResize() {
-      if (window.innerWidth >= 1024) setOpen(false);
-    }
-    window.addEventListener("keydown", onKey);
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      window.removeEventListener("resize", onResize);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => setOpen(false), [pathname]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-700 to-indigo-600 text-white shadow-sm">
-            <span className="text-sm font-bold">E</span>
-          </div>
-          <div className="leading-tight">
-            <div className="text-sm font-semibold text-slate-900">{site.name}</div>
-            <div className="text-xs text-slate-500">{site.tagline}</div>
-          </div>
-        </Link>
-
-        <nav className="hidden items-center gap-1 lg:flex">
-          {nav.map((i) => (
-            <Link
-              key={i.href}
-              href={i.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-900"
-            >
-              {i.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <Link
-            href="/contact"
-            className="hidden rounded-xl bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 sm:inline-flex"
-          >
-            Get in touch
+    <header className={cn("sticky top-0 z-50", scrolled ? "bg-ink/35 backdrop-blur-md" : "bg-transparent")}>
+      <Container className="py-4">
+        <div className="flex items-center justify-between rounded-full border border-white/10 bg-ink/45 px-4 py-3 backdrop-blur-md sm:px-6">
+          <Link href="/" className="inline-flex items-center gap-3">
+            <div className="grid h-9 w-9 place-items-center rounded-2xl gold-hairline bg-ink/60">
+              <span className="text-sm font-semibold tracking-wider text-gold">E</span>
+            </div>
+            <div className="leading-none">
+              <div className="text-sm tracking-[0.22em] text-white">ELEVARE</div>
+              <div className="text-[11px] tracking-[0.28em] text-white/55">GROUP HOLDINGS</div>
+            </div>
           </Link>
 
+          <nav className="hidden items-center gap-7 md:flex">
+            {links.map((l) => {
+              const active = pathname === l.href;
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className={cn(
+                    "text-sm tracking-wide transition",
+                    active ? "text-gold" : "text-white/80 hover:text-white"
+                  )}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="hidden items-center gap-3 md:flex">
+            <ButtonLink href="/contact" variant="contact">
+              Contact Us
+            </ButtonLink>
+          </div>
+
           <button
-            type="button"
-            aria-label="Open menu"
-            aria-expanded={open}
+            className="md:hidden rounded-full border border-white/15 px-4 py-2 font-sans text-sm text-white/90"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 lg:hidden"
+            aria-expanded={open}
+            aria-label="Toggle menu"
           >
-            ☰
+            Menu
           </button>
         </div>
-      </Container>
 
-      {/* Mobile menu */}
-      <div
-        className={[
-          "lg:hidden overflow-hidden border-t border-slate-200 bg-white",
-          "transition-[max-height,opacity] duration-300 ease-out",
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-        ].join(" ")}
-      >
-        <Container className="py-4">
-          <div className="grid gap-2">
-            {nav.map((i) => (
-              <Link
-                key={i.href}
-                href={i.href}
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-blue-50 hover:text-blue-900"
-              >
-                {i.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-xl bg-blue-700 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-blue-800 sm:hidden"
-            >
-              Get in touch
-            </Link>
+        {open ? (
+          <div className="mt-3 rounded-3xl border border-white/10 bg-ink/65 p-3 backdrop-blur-md md:hidden">
+            <div className="flex flex-col gap-2">
+              {links.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className={cn(
+                    "rounded-2xl px-4 py-3 text-sm tracking-wide transition",
+                    pathname === l.href
+                      ? "bg-gold/10 text-gold border border-gold/20"
+                      : "text-white/85 hover:text-white border border-transparent hover:border-white/10"
+                  )}
+                >
+                  {l.label}
+                </Link>
+              ))}
+              <ButtonLink href="/contact" variant="contact" className="w-full justify-center">
+                Contact Us
+              </ButtonLink>
+            </div>
           </div>
-        </Container>
-      </div>
+        ) : null}
+      </Container>
     </header>
   );
 }

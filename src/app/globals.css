@@ -1,48 +1,43 @@
 @import "tailwindcss";
 
+/* Tailwind v4 theme tokens (this is what creates bg-ink, text-gold, etc.) */
+@theme {
+  --color-ink: #050505;
+  --color-ink-2: #0b0b0b;
+  --color-ink-3: #121212;
+
+  /* ✅ Accent switched to executive blue */
+  --color-gold: #2f6bff;   /* primary accent (was gold) */
+  --color-gold-2: #8bb2ff; /* lighter accent */
+  --color-gold-3: #1e3a8a; /* deep navy for gradients */
+
+  --color-paper: #ffffff;
+
+  /* ✅ Shadow border tint follows accent */
+  --shadow-elite: 0 0 0 1px rgba(47, 107, 255, 0.16),
+    0 14px 40px rgba(0, 0, 0, 0.65);
+}
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-
-  /* subtle premium accent (champagne) */
-  --champagne: #e6d6a8;
-  --champagne-2: #cfb97a;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    --foreground: #e2e8f0;
-  }
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }
 
-::selection {
-  background: rgba(37, 99, 235, 0.25);
+/* Hide scrollbar for carousels (still scrollable) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Subtle float like the KPI card in your video */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float-slow { animation: floatSlow 7s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .float-slow { animation: none; }
 }
