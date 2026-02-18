@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/button";
@@ -11,7 +12,16 @@ import {
   BriefcaseBusiness,
   HandCoins,
   Users,
+  Building2,
+  Globe2,
+  Sparkles,
+  HeartHandshake,
+  Home,
 } from "lucide-react";
+import { LightSweepText } from "@/components/ui/LightSweepText";
+import CoreServicesCarousel from "@/components/sections/CoreServicesCarousel";
+import { InvestmentPhilosophySection } from "@/components/sections/Philosophy";
+
 
 /**
  * Copy source:
@@ -49,7 +59,6 @@ function MediaPanel({
   return (
     <div
       className={[
-        "rounded-[2rem] overflow-hidden",
         "shadow-[0_1px_0_rgba(16,24,40,0.06),0_22px_60px_rgba(16,24,40,0.12)]",
         className,
       ].join(" ")}
@@ -68,443 +77,601 @@ function Chip({ icon, text }: { icon: React.ReactNode; text: string }) {
   );
 }
 
-function MiniStat({
-  label,
-  value,
+/** Generic drop-in image slot (prevents squashing) */
+function ImageSlot({
+  src,
+  alt,
+  className = "",
+  overlay = true,
+  priority = false,
 }: {
-  label: string;
-  value: string;
+  src: string;
+  alt: string;
+  className?: string;
+  overlay?: boolean;
+  priority?: boolean;
 }) {
   return (
-    <div className="rounded-2xl bg-white/70 px-5 py-4 backdrop-blur-md">
-      <div className="text-xs uppercase tracking-[0.28em] text-[#0b1020]/50">
-        {label}
+    <div className={["group relative min-h-0 overflow-hidden", className].join(" ")}>
+      <div className="relative h-[300px] w-full sm:h-[360px] lg:h-[440px]">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          className="object-cover object-center"
+          sizes="(min-width: 1024px) 560px, 100vw"
+        />
       </div>
-      <div className="mt-2 text-lg font-semibold text-[#0b1020]">{value}</div>
+
+      {overlay ? (
+        <>
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_90%_at_30%_25%,rgba(47,107,255,0.18)_0%,rgba(154,215,255,0.08)_45%,rgba(0,0,0,0)_75%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-black/20" />
+        </>
+      ) : null}
     </div>
   );
 }
 
-function BarGraphIllustration() {
+
+export function WeWork () {
   return (
-    <svg viewBox="0 0 520 340" className="h-full w-full">
-      <defs>
-        <linearGradient id="g1" x1="0" x2="1">
-          <stop offset="0" stopColor="#2f6bff" />
-          <stop offset="1" stopColor="#9ad7ff" />
-        </linearGradient>
-        <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#bcdcff" stopOpacity="1" />
-          <stop offset="1" stopColor="#ffffff" stopOpacity="1" />
-        </linearGradient>
-      </defs>
+     <section className="bg-ink py-20">
+            <Container>
+              <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+                <div className="lg:col-span-5">
+                  <Reveal>
+                   <div className="mb-2 h-[3px] w-10 rounded-full bg-[#3b82f6]" />
 
-      <rect width="520" height="340" fill="url(#bg)" />
-      <circle cx="410" cy="40" r="130" fill="#2f6bff" opacity="0.10" />
-      <circle cx="90" cy="90" r="120" fill="#9ad7ff" opacity="0.22" />
+                    <h2 className="text-3xl leading-tight text-white sm:text-4xl">
+                      How we work.{" "}<br/>
+                      <span className="italic text-white/90">The executive process</span>
+                    </h2>
+                    <p className="mt-4 text-white/70">
+                      We keep decisions structured: document assumptions, map risk early, and report clearly.
+                    </p>
+                  </Reveal>
+    
+                  
+    
+                  <Reveal delay={170}>
+                    <div className="mt-10 h-px w-28 bg-white/10" />
+                  </Reveal>
+    
+                  <Reveal delay={220}>
+                    <div className="mt-8 text-sm text-white/65">
+                      Outcome: fewer surprises, clearer trade-offs, and better decisions under real constraints.
+                    </div>
+                  </Reveal>
+                </div>
+    
+                <div className="grid gap-6 lg:col-span-7 lg:grid-cols-2">
+                  {[
+                    {
+                      n: "01",
+                      t: "Discovery",
+                      d: "Objectives, constraints, timelines, confidentiality boundaries.",
+                      icon: <Users className="h-5 w-5 text-gold" />,
+                    },
+                    {
+                      n: "02",
+                      t: "Due diligence",
+                      d: "Governance checks, documentation review, risk mapping.",
+                      icon: <ShieldCheck className="h-5 w-5 text-gold" />,
+                    },
+                    {
+                      n: "03",
+                      t: "Structuring",
+                      d: "Debt, equity, and hybrid structures aligned to real-world constraints.",
+                      icon: <Scale className="h-5 w-5 text-gold" />,
+                    },
+                    {
+                      n: "04",
+                      t: "Reporting",
+                      d: "Executive summaries, action items, and risk flags on an agreed cadence.",
+                      icon: <BadgeCheck className="h-5 w-5 text-gold" />,
+                    },
+                  ].map((s, idx) => (
+                    <Reveal key={s.n} delay={idx * 70}>
+                      <div className=" bg-white/5 p-8 backdrop-blur-md">
+                        <div className="flex items-center justify-between">
+                          <div className="text-xs font-sans uppercase tracking-[0.32em] text-white/55">
+                            {s.n}
+                          </div>
+                          <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white/5">
+                            {s.icon}
+                          </div>
+                        </div>
+                        <div className="mt-5 text-lg text-white">{s.t}</div>
+                        <p className="mt-3 text-sm leading-relaxed text-white/70">{s.d}</p>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </Container>
+          </section>
 
-      {/* panel */}
-      <rect x="56" y="70" width="408" height="210" rx="26" fill="#ffffff" opacity="0.92" />
-      <rect x="56" y="70" width="408" height="210" rx="26" fill="#2f6bff" opacity="0.04" />
+  );
+};
 
-      {/* title */}
-      <text x="86" y="110" fontSize="14" fill="rgba(11,16,32,0.55)">
-        Capability dashboard (illustrative)
-      </text>
 
-      {/* bars */}
-      {[
-        { x: 120, h: 86 },
-        { x: 200, h: 132 },
-        { x: 280, h: 108 },
-        { x: 360, h: 154 },
-      ].map((b, i) => (
-        <g key={i}>
-          <rect x={b.x} y={240 - b.h} width="48" height={b.h} rx="16" fill="url(#g1)" />
-          <rect x={b.x} y={248} width="48" height="8" rx="4" fill="rgba(11,16,32,0.10)" />
-        </g>
-      ))}
+export function AboutHero() {
+  return (
+    <section className="relative overflow-hidden bg-black py-20 sm:py-24">
+      <div className="pointer-events-none absolute inset-0 opacity-70 [background:radial-gradient(900px_circle_at_20%_20%,rgba(59,130,246,0.18),transparent_60%),radial-gradient(800px_circle_at_85%_30%,rgba(124,58,237,0.14),transparent_55%)]" />
 
-      {/* footer pills */}
-      <rect x="86" y="264" width="120" height="36" rx="18" fill="#eaf1ff" />
-      <rect x="216" y="264" width="138" height="36" rx="18" fill="#eaf1ff" />
-      <rect x="366" y="264" width="78" height="36" rx="18" fill="#eaf1ff" />
+      <Container className="relative">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* ✅ Direct grid child gets the span */}
+          <div className="lg:col-span-6">
+            <Reveal from="left">
+              <div className="relative overflow-hidden bg-white/[0.03]">
+                {/* ✅ Real height so it can't collapse */}
+                <div className="relative w-full h-[260px] sm:h-[360px] lg:h-[520px]">
+                  <Image
+                    src="/stock/bus-19.jpg"
+                    alt="About Elevare"
+                    fill
+                    priority
+                    className="object-cover object-center"   // ✅ force fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
+                </div>
 
-      <text x="110" y="287" fontSize="12" fill="#2f6bff">Value</text>
-      <text x="245" y="287" fontSize="12" fill="#2f6bff">Governance</text>
-      <text x="388" y="287" fontSize="12" fill="#2f6bff">Risk</text>
-    </svg>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/35 via-black/0 to-black/15" />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* ✅ Direct grid child gets the span */}
+          <div className="lg:col-span-6">
+            <Reveal from="right">
+              <h1 className="text-4xl font-semibold leading-tight text-white sm:text-6xl">
+                About Us
+              </h1>
+            </Reveal>
+
+            <Reveal delay={80} from="right">
+              <div className="mt-6 text-base leading-relaxed text-white/75 sm:text-lg">
+                <LightSweepText
+                  className="leading-relaxed"
+                  baseClassName="text-white/55"
+                  finalClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#60a5fa] to-[#1d4ed8]"
+                  highlightColor="#a5cbfc"
+                  durationMs={1400}
+                  delayMs={60}
+                  once
+                  revealFill
+                >
+                  Elevare Group Holdings (Pty) Ltd is a South Africa based alternative investment and
+                  financial advisory firm providing sophisticated capital solutions to high net worth
+                  individuals, institutional investors, and growth oriented businesses.
+                </LightSweepText>
+              </div>
+            </Reveal>
+
+            <Reveal delay={160} from="right">
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <ButtonLink href="/contact" variant="contact">
+                  Contact Us
+                </ButtonLink>
+                
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
 
-function TilesIllustration() {
-  return (
-    <svg viewBox="0 0 520 340" className="h-full w-full">
-      <defs>
-        <linearGradient id="t" x1="0" x2="1">
-          <stop offset="0" stopColor="#2f6bff" />
-          <stop offset="1" stopColor="#9ad7ff" />
-        </linearGradient>
-      </defs>
-      <rect width="520" height="340" fill="#ffffff" />
-      <rect width="520" height="340" fill="#2f6bff" opacity="0.05" />
-
-      <circle cx="80" cy="60" r="110" fill="#9ad7ff" opacity="0.20" />
-      <circle cx="430" cy="90" r="140" fill="#2f6bff" opacity="0.12" />
-
-      {[
-        { x: 80, y: 86, w: 150, h: 92 },
-        { x: 250, y: 64, w: 190, h: 116 },
-        { x: 80, y: 196, w: 220, h: 104 },
-        { x: 320, y: 200, w: 120, h: 100 },
-      ].map((r, i) => (
-        <g key={i}>
-          <rect x={r.x} y={r.y} width={r.w} height={r.h} rx="28" fill="#ffffff" opacity="0.92" />
-          <rect x={r.x + 22} y={r.y + 22} width="44" height="44" rx="16" fill={i === 1 ? "url(#t)" : "rgba(47,107,255,0.12)"} />
-          <rect x={r.x + 78} y={r.y + 28} width={Math.max(56, r.w - 120)} height="10" rx="5" fill="rgba(11,16,32,0.14)" />
-          <rect x={r.x + 78} y={r.y + 46} width={Math.max(44, r.w - 160)} height="10" rx="5" fill="rgba(11,16,32,0.10)" />
-        </g>
-      ))}
-    </svg>
-  );
-}
 
 export default function AboutPage() {
   return (
     <>
       {/* HERO (Light blue -> white) */}
-      <section className="[background:linear-gradient(180deg,#bcdcff_0%,#eaf3ff_42%,#ffffff_100%)]">
-        <Container className="py-20 sm:py-24">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-6">
-              <Reveal>
-                <div className="inline-flex items-center rounded-full bg-white/70 px-5 py-2 text-xs font-sans uppercase tracking-[0.32em] text-[#0b1020]/60">
-                  About Elevare Group Holdings
-                </div>
-              </Reveal>
-
-              <Reveal delay={90}>
-                <h1 className="mt-6 text-4xl leading-tight text-[#0b1020] sm:text-5xl">
-                  An alternative investment and financial advisory firm{" "}
-                  <span className="italic text-[#0b1020]/90">built for disciplined capital</span>.
-                </h1>
-              </Reveal>
-
-              <Reveal delay={160}>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-[#0b1020]/70">
-                  Elevare Group Holdings (Pty) Ltd is a South Africa based alternative investment and financial advisory firm
-                  providing sophisticated capital solutions to high net worth individuals, institutional investors, and growth oriented businesses.
-                </p>
-              </Reveal>
-
-              <Reveal delay={230}>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <ButtonLink href="/contact" variant="contact">
-                    Contact Us
-                  </ButtonLink>
-                  <ButtonLink href="/services" variant="gold">
-                    View Services
-                  </ButtonLink>
-                </div>
-              </Reveal>
-
-              <Reveal delay={280}>
-                <div className="mt-10 grid gap-3 sm:grid-cols-3">
-                  <MiniStat label="Core focus" value="Value creation" />
-                  <MiniStat label="Priority" value="Risk management" />
-                  <MiniStat label="Outcome" value="Long term growth" />
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Borderless “image card” */}
-            <div className="lg:col-span-6">
-              <Reveal delay={160}>
-                <MediaPanel className="aspect-[16/11]">
-                  <BarGraphIllustration />
-                </MediaPanel>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <AboutHero />
 
       {/* DARK BAND (Vision + Mission) */}
-      <section className="bg-ink py-20">
-        <Container>
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <h2 className="text-3xl leading-tight text-white sm:text-4xl">
-                  Vision &{" "}
-                  <span className="italic text-white/90">Mission</span>
-                </h2>
-                <p className="mt-4 max-w-xl text-white/70">
-                  We’re building an African investment firm recognized for sustainable wealth creation, innovative solutions,
-                  and superior risk adjusted returns.
-                </p>
-              </Reveal>
+      <section className="relative bg-black py-24 sm:py-28 lg:py-32">
+  {/* subtle atmosphere */}
+  
 
-              <Reveal delay={120}>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Chip icon={<LineChart className="h-4 w-4" />} text="Value creation" />
-                  <Chip icon={<ShieldCheck className="h-4 w-4" />} text="Risk discipline" />
-                  <Chip icon={<Network className="h-4 w-4" />} text="Strong networks" />
-                </div>
-              </Reveal>
-            </div>
+  <Container className="relative">
+    {/* Header */}
+    <div className="mx-auto max-w-3xl text-center">
+      <Reveal>
+        <h2 className="font-bold text-5xl leading-tight text-white sm:text-5xl">
+          Vision & <span className="italic text-white/90">Mission</span>
+        </h2>
+      </Reveal>
 
-            <div className="grid gap-6 lg:col-span-7 lg:grid-cols-2">
-              <Reveal>
-                <div className="rounded-[2rem] bg-white/5 p-8 backdrop-blur-md">
-                  <div className="text-xs font-sans uppercase tracking-[0.32em] text-gold/85">
-                    Vision
-                  </div>
-                  <p className="mt-4 text-base leading-relaxed text-white/75">
-                    To be a leading African investment firm recognized for delivering sustainable wealth creation,
-                    innovative financial solutions, and superior risk adjusted returns.
-                  </p>
-                </div>
-              </Reveal>
+      
+    </div>
 
-              <Reveal delay={90}>
-                <div className="rounded-[2rem] bg-white/5 p-8 backdrop-blur-md">
-                  <div className="text-xs font-sans uppercase tracking-[0.32em] text-gold/85">
-                    Mission
-                  </div>
-                  <p className="mt-4 text-base leading-relaxed text-white/75">
-                    To structure and manage capital efficiently by connecting investors with high quality opportunities
-                    while supporting businesses through strategic funding, governance, and financial expertise.
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* LIGHT SECTION (Services overview + image panel on LEFT) */}
-      <section className="bg-white py-20">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            {/* Borderless “image card” LEFT */}
-            <div className="lg:col-span-5 lg:order-1 order-2">
-              <Reveal>
-                <MediaPanel className="aspect-[16/12]">
-                  <TilesIllustration />
-                </MediaPanel>
-              </Reveal>
-            </div>
-
-            <div className="lg:col-span-7 lg:order-2 order-1">
-              <Reveal>
-                <div className="inline-flex items-center rounded-full bg-[#eaf1ff] px-5 py-2 text-xs font-sans uppercase tracking-[0.32em] text-[#2f6bff]">
-                  Core services
-                </div>
-                <h2 className="mt-6 text-3xl leading-tight text-[#0b1020] sm:text-4xl">
-                  Sophisticated capital solutions with{" "}
-                  <span className="italic text-[#0b1020]/90">practical execution</span>.
-                </h2>
-                <p className="mt-4 max-w-2xl text-[#0b1020]/70">
-                  We specialize in private equity investments, wealth management, hedge fund strategies, and funding facilitation,
-                  with a strong focus on value creation, risk management, and long term capital growth within Africa and select global markets.
-                </p>
-              </Reveal>
-
-              <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                <Reveal>
-                  <SoftCard className="p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#eaf1ff]">
-                        <BriefcaseBusiness className="h-5 w-5 text-[#2f6bff]" />
-                      </div>
-                      <div className="text-lg font-semibold text-[#0b1020]">Private Equity</div>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-[#0b1020]/65">
-                      Growth capital and buyout investments, sector focused strategies, active portfolio management,
-                      and exit planning.
-                    </p>
-                  </SoftCard>
-                </Reveal>
-
-                <Reveal delay={70}>
-                  <SoftCard className="p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#eaf1ff]">
-                        <Users className="h-5 w-5 text-[#2f6bff]" />
-                      </div>
-                      <div className="text-lg font-semibold text-[#0b1020]">Wealth Management</div>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-[#0b1020]/65">
-                      Personalized portfolio construction, allocation and risk profiling, generational wealth planning,
-                      and estate/succession support (with legal partners).
-                    </p>
-                  </SoftCard>
-                </Reveal>
-
-                <Reveal delay={110}>
-                  <SoftCard className="p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#eaf1ff]">
-                        <HandCoins className="h-5 w-5 text-[#2f6bff]" />
-                      </div>
-                      <div className="text-lg font-semibold text-[#0b1020]">Funding Facilitation</div>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-[#0b1020]/65">
-                      Capital raising for SMEs and corporates, structuring debt/equity/hybrids,
-                      investor introductions, modelling, and investment readiness support.
-                    </p>
-                  </SoftCard>
-                </Reveal>
-
-                <Reveal delay={150}>
-                  <SoftCard className="p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#eaf1ff]">
-                        <ShieldCheck className="h-5 w-5 text-[#2f6bff]" />
-                      </div>
-                      <div className="text-lg font-semibold text-[#0b1020]">Risk Management</div>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-[#0b1020]/65">
-                      Governance aligned decisions, disciplined review cycles, and clear reporting structures.
-                    </p>
-                  </SoftCard>
-                </Reveal>
+    {/* 3-feature panel (clean + consistent, no “funny” borders) */}
+    <div className="mt-14">
+      <Reveal>
+        <div className="mx-auto max-w-6xl overflow-hidden">
+          <div className="grid md:grid-cols-3 divide-y divide-white/10 md:divide-y-0 md:divide-x">
+            {/* Item 1 */}
+            <div className="p-8 sm:p-10 text-center">
+              <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/5">
+                <LineChart className="h-6 w-6 text-white" />
               </div>
+              <h3 className="mt-5 text-lg font-semibold text-white">Value creation</h3>
+              <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+                Clear structures, disciplined allocation, and an execution mindset focused on outcomes.
+              </p>
+            </div>
+
+            {/* Item 2 */}
+            <div className="p-8 sm:p-10 text-center">
+              <div className="mx-auto grid h-12 w-12 place-items-center border border-white/15 bg-white/5">
+                <ShieldCheck className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-white">Risk discipline</h3>
+              <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+                Governance-led decisions with transparency, risk flags, and practical review cycles.
+              </p>
+            </div>
+
+            {/* Item 3 */}
+            <div className="p-8 sm:p-10 text-center">
+              <div className="mx-auto grid h-12 w-12 place-items-center border border-white/15 bg-white/5">
+                <Network className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-white">Strong networks</h3>
+              <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+                Investor and partner relationships that help deals move from intent to execution.
+              </p>
             </div>
           </div>
-        </Container>
-      </section>
+        </div>
+      </Reveal>
+    </div>
+
+    {/* Vision (text LEFT, image RIGHT) */}
+    <div className="mt-20 grid sm:h-[100vh] items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <Reveal from="left" delay={120}>
+        <div className="w-full">
+                    <div className="h-[3px] w-10 rounded-full bg-[#3b82f6]" />
+
+          <h3 className="font-bold mt-4 text-5xl leading-tight text-white sm:text-5xl">
+            Vision
+          </h3>
+
+
+          <h3 className="mt-4 text-xl leading-tight text-white sm:text-xl">
+            Sustainable wealth creation, built for Africa.
+          </h3>
+
+          <p className="mt-4 text-base leading-relaxed text-white/75">
+            To be a leading African investment firm recognized for delivering sustainable wealth creation,
+            innovative financial solutions, and superior risk adjusted returns.
+          </p>
+
+          <div className="mt-7 h-px w-24 bg-white/10" />
+
+          
+        </div>
+      </Reveal>
+
+      <Reveal delay={120} from="left">
+        <div className="w-full min-w-0 h-full">
+          <div className="group relative w-full h-full overflow-hidden shadow-[0_22px_60px_rgba(0,0,0,0.55)]">
+            {/* big, stable image slot */}
+            <div className="relative w-full h-full aspect-[16/10] sm:aspect-[16/9]">
+              <Image
+                src="/stock/bus-13.jpg"
+                alt="Vision illustration"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            </div>
+
+            {/* overlays */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_90%_at_30%_25%,rgba(47,107,255,0.18)_0%,rgba(154,215,255,0.08)_45%,rgba(0,0,0,0)_75%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-black/25" />
+          </div>
+        </div>
+      </Reveal>
+    </div>
+
+    {/* Divider */}
+    <div className="mx-auto my-16 h-px w-full max-w-6xl bg-white/10" />
+
+    {/* Mission (image LEFT, text RIGHT) */}
+    <div className="grid items-center sm:h-[100vh] gap-12 lg:grid-cols-2 lg:gap-16">
+      <Reveal from="right" delay={120}>
+        <div className="w-full min-w-0 lg:order-1 order-2">
+          <div className="group relative w-full overflow-hidden shadow-[0_22px_60px_rgba(0,0,0,0.55)]">
+            <div className="relative w-full aspect-[16/10] sm:aspect-[16/9]">
+              <Image
+                src="/stock/bus-12.jpg"
+                alt="Mission illustration"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            </div>
+
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_90%_at_30%_25%,rgba(47,107,255,0.18)_0%,rgba(154,215,255,0.08)_45%,rgba(0,0,0,0)_75%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-black/25" />
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={120} from="right">
+        <div className="w-full lg:order-2 order-1">
+                    <div className="h-[3px] w-10 rounded-full bg-[#3b82f6]" />
+
+          <h3 className="font-bold mt-4 text-5xl leading-tight text-white sm:text-5xl">
+            Mission
+          </h3>
+
+          <h3 className="mt-4 text-xl leading-tight text-white sm:text-xl">
+            Structure and manage capital efficiently, with governance.
+          </h3>
+
+          <p className="mt-4 text-base leading-relaxed text-white/75">
+            To structure and manage capital efficiently by connecting investors with high quality opportunities
+            while supporting businesses through strategic funding, governance, and financial expertise.
+          </p>
+
+          <div className="mt-7 h-px w-24 bg-white/10" />
+
+          
+        </div>
+      </Reveal>
+    </div>
+  </Container>
+</section>
+
+
+      {/* LIGHT SECTION (Services overview + IMAGE SLOT on LEFT) */}
+      <CoreServicesCarousel />
+      <WeWork />
 
       {/* LIGHT BLUE ALT (Philosophy + Advantage) */}
-      <section className="[background:linear-gradient(180deg,#ffffff_0%,#eaf3ff_40%,#bcdcff_100%)] py-20">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-            <div className="lg:col-span-6">
-              <Reveal>
-                <div className="inline-flex items-center rounded-full bg-white/80 px-5 py-2 text-xs font-sans uppercase tracking-[0.32em] text-[#0b1020]/60">
-                  Investment philosophy
-                </div>
-                <h2 className="mt-6 text-3xl leading-tight text-[#0b1020] sm:text-4xl">
-                  Disciplined allocation,{" "}
-                  <span className="italic text-[#0b1020]/90">strong governance</span>,
-                  and hands-on engagement.
-                </h2>
-                <p className="mt-4 text-[#0b1020]/70">
-                  Our approach combines rigorous due diligence, strategic insight, and responsible investment practices
-                  to ensure long-term value creation.
-                </p>
-              </Reveal>
-
-              <Reveal delay={110}>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Chip icon={<BadgeCheck className="h-4 w-4" />} text="Rigorous due diligence" />
-                  <Chip icon={<Scale className="h-4 w-4" />} text="Responsible investment" />
-                  <Chip icon={<Landmark className="h-4 w-4" />} text="Governance-first" />
-                </div>
-              </Reveal>
-            </div>
-
-            <div className="lg:col-span-6">
-              <Reveal delay={90}>
-                <SoftCard className="p-8">
-                  <div className="text-xs font-sans uppercase tracking-[0.32em] text-[#2f6bff]">
-                    Competitive advantage
-                  </div>
-                  <div className="mt-6 grid gap-3">
-                    {[
-                      "Deep understanding of African markets",
-                      "Flexible and innovative capital structures",
-                      "Strong investor and funding networks",
-                      "Tailored solutions rather than one-size-fits-all products",
-                      "Commitment to transparency and regulatory compliance",
-                    ].map((t) => (
-                      <div key={t} className="flex items-start gap-3 rounded-2xl bg-[#f4f8ff] px-5 py-4">
-                        <span className="mt-1.5 h-2 w-2 rounded-full bg-[#2f6bff]" />
-                        <div className="text-sm text-[#0b1020]/70">{t}</div>
-                      </div>
-                    ))}
-                  </div>
-                </SoftCard>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <InvestmentPhilosophySection />
 
       {/* DARK ALT (Compliance + Values) */}
-      <section className="bg-[#0a0a0a] py-20">
+      <ComplianceSection />
+    </>
+  );
+}
+
+
+
+export function ComplianceSection() {
+  return (
+    <>
+
+    <WhoWeServeSection />
+
+      {/* VALUES (FULL WIDTH, SUPPORT-STYLE) */}
+      <ValuesSection />
+      {/* COMPLIANCE (NO IMAGE, CENTERED) */}
+      <section className="[background:linear-gradient(180deg,#bcdcff_0%,#eaf3ff_40%,#ffffff_100%)]  py-24 sm:py-28 lg:py-32">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-            <div className="lg:col-span-6">
-              <Reveal>
-                <h2 className="text-3xl leading-tight text-white sm:text-4xl">
-                  Compliance and{" "}
-                  <span className="italic text-white/90">professional standards</span>
-                </h2>
-                <p className="mt-4 text-white/70">
-                  Elevare Group Holdings operates in accordance with South African financial regulations and is committed
-                  to obtaining and maintaining all required licenses, including registration with the Financial Sector Conduct Authority (FSCA) where applicable.
-                </p>
-              </Reveal>
+          <Reveal>
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="text-4xl leading-tight text-black sm:text-5xl">
+                Compliance and{" "}
+                <span className="italic text-black">professional standards</span>
+              </h2>
 
-              <Reveal delay={110}>
-                <div className="mt-8 rounded-[2rem] bg-white/5 p-8 backdrop-blur-md">
-                  <div className="text-xs font-sans uppercase tracking-[0.32em] text-gold/85">
-                    Target clients
-                  </div>
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    {[
-                      "High-net-worth individuals (HNWIs)",
-                      "Family offices",
-                      "Institutional investors",
-                      "Corporates and SMEs seeking growth or restructuring capital",
-                      "International investors seeking African exposure",
-                    ].map((t) => (
-                      <div key={t} className="rounded-2xl bg-white/5 px-4 py-3 text-sm text-white/75">
-                        {t}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
+            <LightSweepText
+              className="mt-6 text-xl leading-relaxed"
+              baseClassName="text-[#71fff8]/55"
+              finalClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#3b82f6] to-[#1d4ed8]"
+              highlightColor="#a5cbfc"
+              durationMs={1400}
+              delayMs={80}
+              once
+              revealFill
+            >                Elevare Group Holdings operates with a governance-first mindset and aligns with South African
+                financial regulation expectations, including licensing and registration requirements (where applicable),
+                with a focus on disciplined reporting and client confidentiality.
+              </LightSweepText>
+
+              {/* Pill chips */}
+              
+
+              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <ButtonLink href="/contact" variant="contact">
+                  Contact Us
+                </ButtonLink>
+                
+              </div>
             </div>
-
-            <div className="lg:col-span-6">
-              <Reveal delay={80}>
-                <div className="rounded-[2rem] bg-white/5 p-8 backdrop-blur-md">
-                  <div className="text-xs font-sans uppercase tracking-[0.32em] text-gold/85">
-                    Corporate values
-                  </div>
-                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {[
-                      "Integrity and accountability",
-                      "Excellence and professionalism",
-                      "Client-centric approach",
-                      "Innovation and adaptability",
-                      "Responsible investment",
-                    ].map((v) => (
-                      <div key={v} className="rounded-2xl bg-white/5 px-5 py-4 text-sm text-white/75">
-                        {v}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 h-px w-full bg-white/10" />
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-end">
-                    <ButtonLink href="/contact" variant="contact">
-                      Contact Us
-                    </ButtonLink>
-                    <ButtonLink href="/services" variant="gold">
-                      Explore Services
-                    </ButtonLink>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
+
+      {/* TARGET CLIENTS (FULL WIDTH, SUPPORT-STYLE) */}
+      
     </>
+  );
+}
+
+export function ValuesSection() {
+  return (
+    <section className="bg-black py-20">
+      <Container>
+        <div className="mx-auto max-w-4xl text-center">
+          <Reveal>
+            
+            <h3 className="font-bold mt-4 text-3xl leading-tight text-white sm:text-4xl">
+                            Our values
+            </h3>
+            
+          </Reveal>
+        </div>
+
+        {/* Feature-divider UI wrapper */}
+        <div className="mx-auto mt-14 w-full max-w-6xl overflow-hidden">
+          <div
+  className={[
+    "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 text-center",
+    // desktop-only vertical dividers (no left on first, no right on last)
+    "lg:[&>*]:border-r lg:[&>*]:border-white/10 lg:[&>*:last-child]:border-r-0",
+  ].join(" ")}
+>
+            {[
+              {
+                icon: <Landmark className="h-6 w-6 text-white" />,
+                title: "Integrity",
+                desc: "Accountability, confidentiality, and clear decision trails.",
+              },
+              {
+                icon: <BadgeCheck className="h-6 w-6 text-white" />,
+                title: "Excellence",
+                desc: "High standards in analysis, structuring, and reporting cadence.",
+              },
+              {
+                icon: <HeartHandshake className="h-6 w-6 text-white" />,
+                title: "Client-first",
+                desc: "Discretion, clarity, and consistent follow-through on commitments.",
+              },
+              {
+                icon: <Sparkles className="h-6 w-6 text-white" />,
+                title: "Innovation",
+                desc: "Practical solutions, not complexity for its own sake.",
+              },
+              {
+                icon: <Scale className="h-6 w-6 text-white" />,
+                title: "Responsibility",
+                desc: "Governance-led thinking and risk-aware capital stewardship.",
+              },
+            ].map((x) => (
+              <div key={x.title} className="flex flex-col items-center px-7 py-10">
+                <Reveal>
+                  <div className="flex flex-col items-center">
+                    <div className="grid h-12 w-12 place-items-center border border-white/15 bg-white/5">
+                    {x.icon}
+                  </div>
+                  <h4 className="mt-5 text-lg font-semibold text-white">{x.title}</h4>
+                  <p className="mt-3 max-w-[22rem] text-sm leading-relaxed text-white/70">
+                    {x.desc}
+                  </p>
+                  </div>
+                  
+                </Reveal>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+export function WhoWeServeSection() {
+  const items = [
+    {
+      icon: <Users className="h-5 w-5" />,
+      metric: "HNWIs",
+      desc: "Private capital needs, structured execution, and discreet engagement.",
+    },
+    {
+      icon: <Home className="h-5 w-5" />,
+      metric: "Family",
+      desc: "Multi-year planning, governance-led decisions, and clear reporting.",
+    },
+    {
+      icon: <Landmark className="h-5 w-5" />,
+      metric: "Institutions",
+      desc: "Mandate-aware structures with risk discipline and documentation rigor.",
+    },
+    {
+      icon: <Building2 className="h-5 w-5" />,
+      metric: "SMEs",
+      desc: "Growth or restructuring capital supported by executive-level process.",
+    },
+    // If you want 5, we can do 5-up on xl. The reference is 4-up, so this is optional.
+    // {
+    //   icon: <Globe2 className="h-5 w-5" />,
+    //   metric: "Global",
+    //   desc: "African market insight, access support, and disciplined oversight.",
+    // },
+  ];
+
+  return (
+    <section className="bg-black py-20 sm:py-24">
+      <Container>
+        {/* Header block (left aligned like reference) */}
+        <div className="max-w-3xl">
+          <Reveal>
+            
+
+            <h3 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
+              Target clients with{" "}
+              <span className="italic text-white/90">serious intent</span>
+            </h3>
+
+             <LightSweepText
+              className="mt-6 text-xl leading-relaxed"
+              baseClassName="text-[#71fff8]/55"
+              finalClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#3b82f6] to-[#1d4ed8]"
+              highlightColor="#a5cbfc"
+              durationMs={1400}
+              delayMs={80}
+              once
+              revealFill
+            > 
+              We work with client profiles that value discretion, clarity, and disciplined execution.
+            </LightSweepText>
+          </Reveal>
+        </div>
+
+        {/* Metrics grid (like the screenshot) */}
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((x, i) => (
+            <Reveal key={x.metric} delay={i * 70}>
+              <div className="relative">
+                {/* purple bar */}
+                <div className="h-[3px] w-10 rounded-full bg-[#3b82f6]" />
+
+                {/* metric row (icon + big “metric”) */}
+                <div className="mt-6 flex items-baseline gap-3">
+                  <div className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                    {x.metric}
+                  </div>
+                </div>
+
+                <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
+                  {x.desc}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Optional: if you still want the 5th item (International investors) in the same style */}
+        <div className="mt-10 hidden xl:block">
+          <div className="grid grid-cols-5 gap-10">
+            <Reveal delay={320}>
+              <div className="col-span-1 relative">
+                <div className="h-[3px] w-10 rounded-full bg-[#3b82f6]" />
+                <div className="mt-6 flex items-baseline gap-3">
+                  
+                  <div className="text-4xl font-semibold tracking-tight text-white">
+                    Global
+                  </div>
+                </div>
+                <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
+                  African market insight, access support, and disciplined oversight.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }

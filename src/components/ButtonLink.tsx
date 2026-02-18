@@ -1,14 +1,14 @@
 import Link from "next/link";
-import React from "react";
+import clsx from "clsx";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "contact" | "ghost";
 
 export function ButtonLink({
   href,
   children,
   variant = "primary",
-  className = "",
-  withArrow = false,
+  className,
+  withArrow,
 }: {
   href: string;
   children: React.ReactNode;
@@ -17,27 +17,23 @@ export function ButtonLink({
   withArrow?: boolean;
 }) {
   const base =
-    "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl px-4 py-2 text-sm font-semibold transition active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2";
+    "font-ui inline-flex h-11 items-center justify-center gap-2 rounded-2xl px-5 text-sm font-semibold transition " +
+    "active:translate-y-[1px] focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]/40";
 
   const styles: Record<Variant, string> = {
-    primary: "bg-blue-700 text-white hover:bg-blue-800",
-    secondary: "bg-white text-blue-900 ring-1 ring-inset ring-blue-200 hover:bg-blue-50",
-    ghost: "text-blue-800 hover:bg-blue-50",
+    primary:
+      "bg-gold text-paper hover:bg-gold-2 shadow-sm shadow-black/30 ring-1 ring-white/10",
+    contact:
+      "bg-paper text-gold hover:bg-paper/90 shadow-sm shadow-black/30 ring-1 ring-white/10",
+    ghost:
+      "bg-white/0 text-paper ring-1 ring-white/15 hover:bg-white/5 hover:ring-white/25",
   };
 
   return (
-    <Link href={href} className={`${base} ${styles[variant]} ${className}`}>
-      <span className="relative z-10">{children}</span>
-
+    <Link href={href} className={clsx(base, styles[variant], className)}>
+      <span>{children}</span>
       {withArrow ? (
-        <span className="relative z-10 transition group-hover:translate-x-0.5">→</span>
-      ) : null}
-
-      {/* Hover shine (no continuous animation) */}
-      {variant !== "ghost" ? (
-        <span aria-hidden className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <span className="absolute -left-1/2 top-0 h-full w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 group-hover:translate-x-[240%]" />
-        </span>
+        <span className="text-current/80 transition group-hover:translate-x-0.5">→</span>
       ) : null}
     </Link>
   );

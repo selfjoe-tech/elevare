@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 type Variant = "gold" | "contact" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold tracking-wide font-sans transition " +
+  "inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold tracking-wide font-sans transition " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ink " +
   "disabled:opacity-50 disabled:pointer-events-none";
 

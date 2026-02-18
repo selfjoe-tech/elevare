@@ -7,8 +7,6 @@ import Link from "next/link";
 import CapabilityShowcase from "@/components/sections/CapabilityShowcase";
 
 
-
-
 function Card({
   className,
   children,
@@ -29,6 +27,8 @@ function Divider() {
   return <div className="h-px w-full bg-white/10" />;
 }
 
+
+
 export default function HomePage() {
   return (
     <>
@@ -36,7 +36,7 @@ export default function HomePage() {
       <section className="relative">
         <div className="relative min-h-[95vh] overflow-hidden">
           <Image
-            src="/images/lion-6.jpg"
+            src="/stock/e-1.jpg"
             alt=""
             fill
             priority
@@ -68,8 +68,8 @@ export default function HomePage() {
                     <ButtonLink href="/contact" variant="contact">
                       Contact Us
                     </ButtonLink>
-                    <ButtonLink href="/services" variant="gold" className="justify-center">
-                      Explore Services
+                    <ButtonLink href="/about" variant="gold" className="justify-center">
+                      About us
                     </ButtonLink>
                     
                   </div>
@@ -97,114 +97,165 @@ export default function HomePage() {
       {/* Mosaic cards (like the video’s feature grid) */}
         <Container>
   <section className="py-20">
-    <Reveal>
-      <h2 className="text-center text-3xl font-semibold text-white sm:text-4xl">
-        Support when you need it
-      </h2>
-    </Reveal>
-
-    <div className="mt-12 grid gap-12 text-center md:grid-cols-3 md:gap-8">
+    {/* Column wrapper */}
+    <div className="flex flex-col items-center">
       <Reveal>
-        <div className="flex flex-col items-center">
-          {/* Icon */}
-          <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
-            <BriefcaseBusiness className="h-6 w-6 text-gold" />
-          </div>
-
-          <h3 className="mt-5 text-lg font-semibold text-white">
-            Private Equity
-          </h3>
-
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
-            Growth capital, buyouts, portfolio support, and exit strategy planning.
-          </p>
-
-          <Link
-            href="/services#private-equity"
-            className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
-          >
-            Find out more <span aria-hidden className="text-gold">→</span>
-          </Link>
-        </div>
+        <h2 className="text-center text-3xl font-semibold text-white sm:text-4xl">
+          Support when you need it
+        </h2>
       </Reveal>
 
-      <Reveal delay={80}>
-        <div className="flex flex-col items-center">
-          <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
-            <HandCoins className="h-6 w-6 text-gold" />
-          </div>
+      {/* 3 features */}
+      <div className="mt-12 grid w-full max-w-6xl text-center md:grid-cols-3 md:gap-0">
+  {/* Item 1 */}
+  <Reveal>
+    <div className="flex flex-col items-center px-0 md:px-10 md:pr-12 md:border-r md:border-white/10">
+      <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
+        <BriefcaseBusiness className="h-6 w-6 text-gold" />
+      </div>
 
-          <h3 className="mt-5 text-lg font-semibold text-white">
-            Funding Facilitation
-          </h3>
+      <h3 className="mt-5 text-lg font-semibold text-white">Private Equity</h3>
 
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
-            Debt, equity, and hybrid instruments with investor introductions and deal structuring.
-          </p>
+      <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+        Growth capital, buyouts, portfolio support, and exit strategy planning.
+      </p>
 
-          <Link
-            href="/services#funding"
-            className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
-          >
-            Hone your structure <span aria-hidden className="text-gold">→</span>
-          </Link>
-        </div>
-      </Reveal>
+      <Link
+        href="/about#services"
+        className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
+      >
+        Find out more <span aria-hidden className="text-gold">→</span>
+      </Link>
+    </div>
+  </Reveal>
 
-      <Reveal delay={160}>
-        <div className="flex flex-col items-center">
-          <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
-            <ShieldCheck className="h-6 w-6 text-gold" />
-          </div>
+  {/* Item 2 */}
+  <Reveal delay={80}>
+    <div className="flex flex-col items-center px-0 md:px-10 md:border-r md:border-white/10">
+      <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
+        <HandCoins className="h-6 w-6 text-gold" />
+      </div>
 
-          <h3 className="mt-5 text-lg font-semibold text-white">
-            Risk Management
-          </h3>
+      <h3 className="mt-5 text-lg font-semibold text-white">Funding Facilitation</h3>
 
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
-            Transparent reporting, compliance alignment, and disciplined review cycles.
-          </p>
+      <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+        Debt, equity, and hybrid instruments with investor introductions and deal structuring.
+      </p>
 
-          <Link
-            href="/services#risk"
-            className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
-          >
-            Join the review <span aria-hidden className="text-gold">→</span>
-          </Link>
-        </div>
-      </Reveal>
+      <Link
+        href="/about#services"
+        className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
+      >
+        Hone your structure <span aria-hidden className="text-gold">→</span>
+      </Link>
+    </div>
+  </Reveal>
+
+  {/* Item 3 */}
+  <Reveal delay={160}>
+    <div className="flex flex-col items-center px-0 md:px-10 md:pl-12">
+      <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
+        <ShieldCheck className="h-6 w-6 text-gold" />
+      </div>
+
+      <h3 className="mt-5 text-lg font-semibold text-white">Risk Management</h3>
+
+      <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+        Transparent reporting, compliance alignment, and disciplined review cycles.
+      </p>
+
+      <Link
+        href="/about#services"
+        className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
+      >
+        Join the review <span aria-hidden className="text-gold">→</span>
+      </Link>
+    </div>
+  </Reveal>
+</div>
+
+
+      {/* Big image space below */}
+      {/* Big image space below */}
+  <div className="mt-14 w-full max-w-6xl">
+    <div className="group relative overflow-hidden bg-white/5 shadow-[0_22px_60px_rgba(0,0,0,0.35)]">
+      {/* IMAGE: fixed heights so it always renders */}
+      <div className="relative h-[220px] w-full sm:h-[320px] lg:h-[520px] ">
+        <Image
+          src="/stock/bus-1.jpg"
+          alt="Elevare support overview"
+          fill
+          className="object-cover rounded-[20px]"
+          sizes="(min-width: 1024px) 1024px, 100vw,"
+        />
+      </div>
+
+      {/* Soft overlay for the executive vibe */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_80%_at_30%_35%,rgba(47,107,255,0.22)_0%,rgba(154,215,255,0.10)_40%,rgba(10,10,10,0.0)_70%)] opacity-100 transition-opacity duration-300 group-hover:opacity-90 motion-reduce:transition-none" />
+
+      {/* Slight dark wash so text stays readable */}
+      <div className="pointer-events-none absolute inset-0 bg-black/25" />
+
+      {/* Caption strip */}
+      
+    </div>
+  </div>
+
     </div>
   </section>
 </Container>
+
+
       </section>
 
       <CapabilityShowcase />
 
 
       {/* Gradient interstitial (like the video’s big color panel, but gold/ink) */}
-<section className="[background:linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.78)_22%,rgba(30,58,138,0.55)_115%,rgba(10,16,32,1)_8%)] h-[95vh] py-50">
-        <Container>
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-4xl leading-tight text-white sm:text-5xl">
-                Close the performance gap{" "}
-                <span className="italic text-white/90">in your capital</span>.
-              </h2>
-              <p className="mt-5 text-white/70">
-                Decision speed improves when reporting is clear and governance is tight.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <ButtonLink href="/contact" variant="contact">
-                  Contact Us
-                </ButtonLink>
-                <ButtonLink href="/services" variant="gold">
-                  View Services
-                </ButtonLink>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+<section className="relative h-[95vh] overflow-hidden py-20 sm:py-24">
+  {/* Background image */}
+  <Image
+    src="/stock/bus-29.jpg" // <-- change to your image path in /public
+    alt="Background"
+    fill
+    priority
+    className="object-cover object-center"
+    sizes="100vw"
+  />
+
+  {/* Gradient overlay (your existing gradient, but as an overlay) */}
+  <div className="pointer-events-none absolute inset-0 " />
+
+  {/* Optional extra darken for readability */}
+  <div className="pointer-events-none absolute inset-0 bg-black/25" />
+
+  {/* Content */}
+  <Container className="relative z-10 h-full">
+    <div className="flex h-full items-center justify-center">
+      <Reveal>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl leading-tight text-white sm:text-5xl">
+            Close the performance gap{" "}
+            <span className="italic text-white/90">in your capital</span>.
+          </h2>
+
+          <p className="mt-5 text-white/70">
+            Decision speed improves when reporting is clear and governance is tight.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <ButtonLink href="/contact" variant="contact">
+              Contact Us
+            </ButtonLink>
+            <ButtonLink href="/about" variant="gold">
+              About us
+            </ButtonLink>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  </Container>
+</section>
 
       {/* <section className="py-20">
         <Container>
@@ -318,26 +369,56 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA + footer already exists (your footer component) */}
-      <section className="[background:radial-gradient(90%_80%_at_30%_40%,rgba(47,107,255,0.60)_0%,rgba(47,107,255,0.28)_40%,rgba(47,107,255,0.14)_62%,rgba(5,5,5,1)_84%)] py-50">
-        <Container>
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-4xl text-white sm:text-5xl">
-                Ready to shape the future{" "}
-                <span className="italic text-white">of your capital</span> ?
-              </h2>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <ButtonLink href="/contact" variant="contact">
-                  Contact Us
-                </ButtonLink>
-                <ButtonLink href="/services" variant="gold">
-                  View Services
-                </ButtonLink>
-              </div>
+      <section className="[background:radial-gradient(90%_80%_at_30%_40%,rgba(47,107,255,0.60)_0%,rgba(47,107,255,0.28)_40%,rgba(47,107,255,0.14)_62%,rgba(5,5,5,1)_84%)] py-24 sm:py-28 lg:py-32">
+  <Container>
+    <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:items-center">
+      {/* LEFT */}
+      <Reveal>
+        <div className="max-w-2xl">
+          <h2 className="text-4xl leading-tight text-white sm:text-5xl">
+            Ready to shape the future{" "}
+            <span className="italic text-white">of your capital</span>?
+          </h2>
+
+          <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
+            Structured capital decisions, clear reporting, and disciplined governance built for long-term outcomes.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <ButtonLink href="/contact" variant="contact">
+              Contact Us
+            </ButtonLink>
+            <ButtonLink href="/about" variant="gold">
+              About Us
+            </ButtonLink>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* RIGHT (image slot) */}
+      <Reveal delay={120}>
+        <div className="order-2 lg:order-none">
+          <div className="group relative overflow-hidden ">
+            {/* Use fixed height so it never collapses */}
+            <div className="relative h-[260px] w-full sm:h-[340px] lg:h-[620px]">
+              <Image
+                src="/stock/e-2.png"
+                alt="Elevare illustration"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 520px, 100vw"
+              />
             </div>
-          </Reveal>
-        </Container>
-      </section>
+
+            {/* Blue overlay to match scheme */}
+
+            {/* Light wash for readability */}
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  </Container>
+</section>
     </>
   );
 }

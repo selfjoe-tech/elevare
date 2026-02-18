@@ -9,11 +9,14 @@ export type Executive = {
   responsibilities?: string[];
   expertise?: string[];
   credentials?: string[];
+    linkedin?: string | null; // ✅ add
+
 };
 
 export const EXECUTIVES: Executive[] = [
   {
     slug: "gracious-mutsindikwa",
+    linkedin: "https://zw.linkedin.com/in/gracious-mutsindikwa-b65256134", 
     name: "Gracious Mutsindikwa",
     role: "Co-founder, Partner & Business Development Director",
     tagline: "Business development, corporate clients, and strategic direction.",
@@ -46,6 +49,7 @@ export const EXECUTIVES: Executive[] = [
   },
   {
     slug: "smile-carnegie-sibanda",
+    linkedin: "https://zw.linkedin.com/in/smile-sibanda-78836243" ,
     name: "Smile Carnegie Sibanda",
     role: "Finance Director",
     tagline: "Financial leadership, controls, and governance support.",

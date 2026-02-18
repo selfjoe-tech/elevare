@@ -1,67 +1,145 @@
-import { Container } from "@/components/Container";
-import { SectionHeading } from "@/components/SectionHeading";
-import { Reveal } from "@/components/Reveal";
-import { IllustrationCard } from "@/components/IllustrationCard";
-import { PageHero } from "@/components/PageHero";
-import { profileLeadership } from "@/lib/profile";
+import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
+import Link from "next/link";
+import { EXECUTIVES } from "@/lib/leadership";
+import { BadgeCheck, ShieldCheck, Scale, UserRound, ChevronRight, ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ButtonLink } from "@/components/ui/button";
 
-export default function TeamPage() {
+function Pill({
+  icon,
+  text,
+}: {
+  icon: React.ReactNode;
+  text: string;
+}) {
   return (
-    <div className="relative">
-      <PageHero
-        eyebrow="Leadership"
-        title="Leadership Team"
-        subtitle="A leadership team with experience across corporate banking, treasury, public-sector finance, audit, and governance."
-        primaryCta={{ label: "Start an enquiry", href: "/contact" }}
-        secondaryCta={{ label: "About", href: "/about" }}
-        
-      />
+    <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-sans text-white/85">
+      {icon}
+      {text}
+    </span>
+  );
+}
 
-      <section className="bg-white">
-        <Container className="py-12 sm:py-16">
+function AvatarPlaceholder() {
+  return (
+    <div className="grid h-24 w-24 place-items-center rounded-full bg-white/10 ring-1 ring-white/10">
+      <UserRound className="h-9 w-9 text-white/70" />
+    </div>
+  );
+}
+
+export default function LeadershipPage() {
+  return (
+    <>
+      {/* HERO (centered, no image) */}
+      <section className="bg-black">
+        <Container className="py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            
+
+            <Reveal delay={90}>
+              <h1 className="mt-6 text-4xl leading-tight text-white sm:text-5xl">
+                Executive stewardship{" "}
+                <span className="italic text-white/90">backed by discipline</span>.
+              </h1>
+            </Reveal>
+
+            <Reveal delay={160}>
+              <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                Meet the leadership team responsible for strategy, investment oversight,
+                governance alignment, and client execution.
+              </p>
+            </Reveal>
+
+            
+          </div>
+        </Container>
+      </section>
+
+      {/* TEAM (simple row like your reference, black background) */}
+      <section className="bg-black">
+        <Container className="py-20 sm:py-24">
           <Reveal>
-            <SectionHeading
-              eyebrow="Profiles"
-              title="Meet the team"
-              subtitle="Roles and responsibilities aligned to strategy, finance oversight, and investment execution."
-            />
+            <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mt-6 text-4xl leading-tight text-white sm:text-5xl">
+              Meet The Leadership
+                
+              </h1>              <p className="mt-2 text-sm text-white/65">
+                Select an executive to view the full profile.
+              </p>
+            </div>
           </Reveal>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {profileLeadership.map((p, i) => (
-              <Reveal key={p.name} delayMs={70 * i}>
-                <div className="rounded-3xl border border-slate-200 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-md">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-xl font-semibold text-slate-900">{p.name}</div>
-                      <div className="mt-1 text-sm font-semibold text-blue-800">{p.role}</div>
-                    </div>
-                    {"isTBC" in p && p.isTBC ? (
-                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                        TBC
-                      </span>
-                    ) : null}
+          <div className="mt-12 grid grid-cols-2 justify-items-center gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4">
+            {EXECUTIVES.map((e, idx) => (
+              <Reveal key={e.slug} delay={idx * 60}>
+                <Link
+                  href={`/team/${e.slug}`}
+                  className={[
+                    "group flex w-full max-w-[220px] flex-col items-center text-center",
+                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-2xl",
+                  ].join(" ")}
+                >
+                  <div className="transition-transform duration-200 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+                    <AvatarPlaceholder />
                   </div>
 
-                  <p className="mt-4 text-sm text-slate-600">{p.bio}</p>
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex flex-col justify-center mt-4 min-h-[44px]">
+                        <div className="text-sm font-semibold text-white">{e.name}</div>
+                        <div className="mt-1 text-xs text-white/60">{e.role}</div>
+                      </div>
 
-                  <div className="mt-6">
-                    <div className="text-sm font-semibold text-slate-900">Key responsibilities</div>
-                    <div className="mt-3 grid gap-2">
-                      {p.responsibilities.map((r) => (
-                        <div key={r} className="flex gap-3 text-sm text-slate-700">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-700" />
-                          <span>{r}</span>
-                        </div>
-                      ))}
+                      <ArrowUpRight
+                        className="shrink-0 h-7 w-7"
+                        strokeWidth={3}
+                        aria-hidden="true"
+                      />
                     </div>
-                  </div>
-                </div>
+
+                  
+                </Link>
               </Reveal>
             ))}
           </div>
         </Container>
       </section>
-    </div>
+
+      {/* DARK CTA (optional keep) */}
+      <section className="bg-black py-20">
+        <Container>
+          <Reveal>
+            <div className="mx-auto max-w-4xl rounded-[2rem] bg-white/5 p-10 text-center backdrop-blur-md">
+              <div className="text-xs font-sans uppercase tracking-[0.32em] text-white/55">
+                Next step
+              </div>
+              <h2 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
+                Want an executive{" "}
+                <span className="italic text-white/90">brief</span>?
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-white/70">
+                Share your objective and we’ll respond with a structured approach and clear next steps.
+              </p>
+
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:justify-center">
+                <ButtonLink
+                  href="/contact"
+                  variant="contact"
+                  className="inline-flex h-12 items-center justify-center bg-white px-6 font-sans text-sm font-semibold text-black"
+                >
+                  Contact Us
+                </ButtonLink>
+                <ButtonLink
+                  href="/about"
+                  className="inline-flex h-12 items-center justify-center bg-gold px-6 font-sans text-sm font-semibold text-black"
+                >
+                  About Us
+                </ButtonLink>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+    </>
   );
 }

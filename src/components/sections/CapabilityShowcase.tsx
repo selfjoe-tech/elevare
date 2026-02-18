@@ -11,7 +11,16 @@ import {
   LineChart,
   BadgeCheck,
   Landmark,
+  Sparkles, 
+  FileText, 
+  ShieldAlert, 
+  ArrowUpRight,
 } from "lucide-react";
+
+
+
+import Image from "next/image";
+import { LightSweepText } from "../ui/LightSweepText";
 
 function useInView(threshold = 0.22) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -44,33 +53,6 @@ function useInView(threshold = 0.22) {
   return { ref, active };
 }
 
-function MetricBar({
-  label,
-  note,
-  value,
-  active,
-}: {
-  label: string;
-  note: string;
-  value: number; // 0..100 (visual emphasis, not a claim)
-  active: boolean;
-}) {
-  return (
-    <div className="space-y-2">
-      <div className="flex items-end justify-between gap-4">
-        <div className="text-sm font-semibold text-[#0b1020]">{label}</div>
-        <div className="text-xs text-[#0b1020]/55">{note}</div>
-      </div>
-
-      <div className="h-9 w-full rounded-2xl bg-[#eaf1ff] p-1">
-        <div
-          className="h-full rounded-2xl bg-gradient-to-r from-[#2f6bff] to-[#75c2ff] transition-[width] duration-700 ease-out motion-reduce:transition-none"
-          style={{ width: active ? `${value}%` : "0%" }}
-        />
-      </div>
-    </div>
-  );
-}
 
 function BarGraphIllustration() {
   return (
@@ -119,36 +101,6 @@ function BarGraphIllustration() {
   );
 }
 
-function TileIllustration() {
-  return (
-    <svg viewBox="0 0 420 260" className="h-[160px] w-full">
-      <defs>
-        <linearGradient id="tg" x1="0" x2="1">
-          <stop offset="0" stopColor="#2f6bff" />
-          <stop offset="1" stopColor="#9ad7ff" />
-        </linearGradient>
-      </defs>
-
-      <rect x="0" y="0" width="420" height="260" rx="22" fill="#f5f9ff" />
-      <g opacity="0.95">
-        {[
-          { x: 220, y: 62 },
-          { x: 292, y: 92 },
-          { x: 168, y: 108 },
-          { x: 244, y: 140 },
-          { x: 316, y: 158 },
-        ].map((t, i) => (
-          <g key={i}>
-            <rect x={t.x} y={t.y} width="78" height="56" rx="18" fill="#ffffff" stroke="rgba(47,107,255,0.14)" />
-            <rect x={t.x + 16} y={t.y + 16} width="22" height="22" rx="7" fill={i === 3 ? "url(#tg)" : "rgba(47,107,255,0.10)"} />
-            <rect x={t.x + 44} y={t.y + 18} width="22" height="6" rx="3" fill="rgba(11,16,32,0.12)" />
-            <rect x={t.x + 44} y={t.y + 30} width="16" height="6" rx="3" fill="rgba(11,16,32,0.10)" />
-          </g>
-        ))}
-      </g>
-    </svg>
-  );
-}
 
 export default function CapabilityShowcase() {
   const { ref, active } = useInView();
@@ -169,21 +121,31 @@ export default function CapabilityShowcase() {
             </h2>
           </Reveal>
           <Reveal delay={90}>
-            <p className="mt-5 text-base leading-relaxed text-[#0b1020]/70">
+            <LightSweepText
+              className="mt-5 text-base leading-relaxed"
+              baseClassName="text-[#71fff8]/55"  // soft base
+              finalClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#3b82f6] to-[#1d4ed8]"
+              highlightColor="#a5cbfc"
+              durationMs={1400}
+              delayMs={80}
+              once
+              revealFill
+            >
               Elevare Group Holdings provides sophisticated capital solutions with a strong focus on
               value creation, risk management, and long-term capital growth within Africa and select global markets.
-            </p>
+            </LightSweepText>
+
           </Reveal>
         </div>
 
         {/* Collage grid */}
-        <div ref={ref} className="mt-14 grid gap-6 lg:grid-cols-12">
+        <div ref={ref} className="mt-5 grid gap-6 lg:grid-cols-12">
           {/* LEFT COLUMN */}
-          <div className="grid gap-6 lg:col-span-3">
+          <div className="grid gap-3 lg:col-span-3">
             <Reveal>
               <div className="rounded-[1.75rem] border border-black/5 bg-white p-6 shadow-[0_1px_0_rgba(16,24,40,0.06),0_18px_50px_rgba(16,24,40,0.10)]">
                 
-                <div className="mt-4">
+                <div >
                   <BarGraphIllustration />
                 </div>
                 
@@ -258,6 +220,12 @@ export default function CapabilityShowcase() {
                 </div>
               </div>
             </Reveal>
+
+            <Reveal delay={220}>
+                <div className="mt-4">
+                  <CollageImage src="/stock/bus-4.jpg" alt="Capability illustration" />
+                </div>
+            </Reveal>
           </div>
 
           {/* RIGHT COLUMN */}
@@ -279,7 +247,6 @@ export default function CapabilityShowcase() {
             <Reveal delay={180}>
               <div className="rounded-[1.75rem] border border-black/5 bg-white p-6 shadow-[0_1px_0_rgba(16,24,40,0.06),0_18px_50px_rgba(16,24,40,0.10)]">
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#2f6bff] to-[#9ad7ff]" />
                   <div>
                     <div className="text-sm font-semibold text-[#0b1020]">Executive reporting</div>
                     <div className="text-xs text-[#0b1020]/55">
@@ -298,6 +265,7 @@ export default function CapabilityShowcase() {
                 </div>
               </div>
             </Reveal>
+
           </div>
         </div>
 
@@ -311,3 +279,25 @@ export default function CapabilityShowcase() {
     </section>
   );
 }
+
+function CollageImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  return (
+    <div className="relative h-[170px] w-full overflow-hidden rounded-[1.35rem] bg-[#f4f8ff] sm:h-[390px]">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover object-center"
+        sizes="(min-width: 1024px) 320px, 100vw"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_80%_at_30%_20%,rgba(47,107,255,0.22)_0%,rgba(154,215,255,0.10)_45%,rgba(255,255,255,0)_70%)]" />
+    </div>
+  );
+}
+

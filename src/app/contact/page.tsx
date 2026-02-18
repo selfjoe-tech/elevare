@@ -113,70 +113,19 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO (Light blue -> white) */}
-      <section className="[background:linear-gradient(180deg,#bcdcff_0%,#eaf3ff_42%,#ffffff_100%)]">
-        <Container className="py-20 sm:py-24">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-6">
-              <Reveal>
-                <div className="inline-flex items-center rounded-full bg-white/70 px-5 py-2 text-xs font-sans uppercase tracking-[0.32em] text-[#0b1020]/60">
-                  Contact
-                </div>
-              </Reveal>
-
-              <Reveal delay={90}>
-                <h1 className="mt-6 text-4xl leading-tight text-[#0b1020] sm:text-5xl">
-                  Executive response,{" "}
-                  <span className="italic text-[#0b1020]/90">clear next steps</span>.
-                </h1>
-              </Reveal>
-
-              <Reveal delay={160}>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-[#0b1020]/70">
-                  Elevare engages with clients through a structured, confidentiality-first process.
-                  Share your objective and we’ll respond with a clear approach, timelines, and the real constraints to consider.
-                </p>
-              </Reveal>
-
-              <Reveal delay={230}>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <ButtonLink href="#contact-form" variant="gold">
-                    Start an enquiry
-                  </ButtonLink>
-                  <ButtonLink href="/services" variant="contact">
-                    View Services
-                  </ButtonLink>
-                </div>
-              </Reveal>
-
-              <Reveal delay={280}>
-                <div className="mt-10 flex flex-wrap gap-3">
-                  <Chip icon={<ShieldCheck className="h-4 w-4" />} text="Confidential" />
-                  <Chip icon={<Scale className="h-4 w-4" />} text="Governance-first" />
-                  <Chip icon={<BadgeCheck className="h-4 w-4" />} text="Action-oriented" />
-                </div>
-              </Reveal>
-            </div>
-
-            <div className="lg:col-span-6">
-              <Reveal delay={160}>
-                <MediaPanel className="aspect-[16/11]">
-                  <SecureCommsIllustration />
-                </MediaPanel>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </section>
+      
 
       {/* WHITE: Contact channels (clean, no heavy UI) */}
       <section className="bg-white py-20">
         <Container>
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center rounded-full bg-[#eaf1ff] px-5 py-2 text-xs font-sans uppercase tracking-[0.32em] text-[#2f6bff]">
-                How to reach us
-              </div>
-              <h2 className="mt-6 text-3xl text-[#0b1020] sm:text-4xl">
+
+              <h2 className="mt-6 font-bold text-5xl text-[#0b1020] sm:text-5xl">
+                Contact Us              
+              </h2>
+              
+              <h2 className="mt-6 text-xl text-[#0b1020] sm:text-xl">
                 Choose the channel that fits the mandate.
               </h2>
               <p className="mt-4 text-[#0b1020]/70">
@@ -240,7 +189,7 @@ export default function ContactPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-5">
               <Reveal>
-                <h2 className="text-3xl leading-tight text-white sm:text-4xl">
+                <h2 className="text-5xl leading-tight text-white sm:text-5xl">
                   Submit an{" "}
                   <span className="italic text-white/90">enquiry</span>
                 </h2>
@@ -372,13 +321,17 @@ export default function ContactPage() {
         <Container>
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center rounded-full bg-white/80 px-5 py-2 text-xs font-sans uppercase tracking-[0.32em] text-[#0b1020]/60">
-                What happens next
-              </div>
               <h2 className="mt-6 text-3xl text-[#0b1020] sm:text-4xl">
+                What happens next?
+              </h2>
+
+
+              <h2 className="mt-6 text-xl text-[#0b1020] sm:text-xl">
                 A disciplined process from{" "}
                 <span className="italic text-[#0b1020]/90">discovery</span> to execution.
               </h2>
+
+
               <p className="mt-4 text-[#0b1020]/70">
                 We document assumptions, map risk early, and keep reporting action-oriented.
               </p>

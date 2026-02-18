@@ -152,7 +152,7 @@ export function SiteFooter() {
             <div className="mt-3 grid gap-2">
               <FooterLink href="/services">Services</FooterLink>
               <FooterLink href="/approach">Investment Approach</FooterLink>
-              <FooterLink href="/leadership">Leadership</FooterLink>
+              <FooterLink href="/team">Leadership</FooterLink>
               <FooterLink href="/compliance">Compliance</FooterLink>
             </div>
 
