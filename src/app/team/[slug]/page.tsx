@@ -442,7 +442,7 @@ export default async function ExecutiveProfilePage({
                   Contact Us
                 </Link>
                 <Link
-                  href="/services"
+                  href="/about#services"
                   className="inline-flex h-12 items-center justify-center rounded-2xl bg-[#2f6bff] px-6 font-sans text-sm font-semibold text-white"
                 >
                   View Services

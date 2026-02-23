@@ -198,22 +198,7 @@ export default function ContactPage() {
                 </p>
               </Reveal>
 
-              <Reveal delay={110}>
-                <div className="mt-8 space-y-3">
-                  {[
-                    { icon: <Clock className="h-4 w-4 text-gold" />, t: "Expected response: 1 business day" },
-                    { icon: <Landmark className="h-4 w-4 text-gold" />, t: "Governance aligned approach" },
-                    { icon: <ShieldCheck className="h-4 w-4 text-gold" />, t: "Confidential handling" },
-                  ].map((x) => (
-                    <div key={x.t} className="flex items-center gap-3 rounded-2xl bg-white/5 px-5 py-4">
-                      <div className="grid h-9 w-9 place-items-center rounded-xl bg-white/5">
-                        {x.icon}
-                      </div>
-                      <div className="text-sm text-white/75">{x.t}</div>
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
+              
             </div>
 
             <div className="lg:col-span-7">
@@ -294,15 +279,10 @@ export default function ContactPage() {
                     </label>
 
                     <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                      <div className="inline-flex items-center gap-2 text-xs text-white/60">
-                        <MessageSquareText className="h-4 w-4 text-gold/80" />
-                        Confidential handling. Executive response.
-                      </div>
+                      
 
                       <div className="flex gap-3">
-                        <ButtonLink href="/services" variant="contact">
-                          Services
-                        </ButtonLink>
+                        
                         <ButtonLink href="#" variant="gold">
                           Submit
                         </ButtonLink>

@@ -2,17 +2,11 @@
 
 import * as React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import { LightSweepText } from "../ui/LightSweepText";
-
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
 
 type Slide = {
   id: string;
@@ -64,13 +58,10 @@ const SLIDES: Slide[] = [
 
 export default function CoreServicesCarousel({
   title = "Core Services",
-  subtitle = `We specialize in private equity investments, wealth management, hedge fund strategies, and funding facilitation,
-with a strong focus on value creation, risk management, and long term capital growth within Africa and select global markets.`,
   slides = SLIDES,
   autoPlayMs = 6500,
 }: {
   title?: string;
-  subtitle?: string;
   slides?: Slide[];
   autoPlayMs?: number;
 }) {
@@ -79,8 +70,13 @@ with a strong focus on value creation, risk management, and long term capital gr
   const [isPlaying, setIsPlaying] = React.useState(true);
   const [hoverPause, setHoverPause] = React.useState(false);
 
-  const scrollPrev = React.useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = React.useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollPrev = React.useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = React.useCallback(() => {
+    emblaApi?.scrollNext();
+  }, [emblaApi]);
 
   React.useEffect(() => {
     if (!emblaApi) return;
@@ -94,28 +90,24 @@ with a strong focus on value creation, risk management, and long term capital gr
     };
   }, [emblaApi]);
 
-  // Autoplay (pauses on hover)
   React.useEffect(() => {
-    if (!emblaApi) return;
-    if (!isPlaying) return;
-    if (hoverPause) return;
+    if (!emblaApi || !isPlaying || hoverPause) return;
 
-    const t = window.setInterval(() => emblaApi.scrollNext(), autoPlayMs);
+    const t = window.setInterval(() => {
+      emblaApi.scrollNext();
+    }, autoPlayMs);
+
     return () => window.clearInterval(t);
   }, [emblaApi, isPlaying, hoverPause, autoPlayMs]);
 
   return (
     <section className="relative overflow-hidden bg-black py-20 sm:py-24" id="services">
-      {/* atmosphere */}
-      <div className="pointer-events-none absolute inset-0 opacity-80 bg-black" />
+      <div className="pointer-events-none absolute inset-0 bg-black" />
 
       <Container className="relative w-full">
         <Reveal>
-          <div className=" text-center">
-            <h2 className="font-bold text-5xl leading-tight text-white sm:text-5xl">
-                {title}
-            </h2>
-           
+          <div className="text-center">
+            <h2 className="font-bold text-5xl leading-tight text-white sm:text-5xl">{title}</h2>
           </div>
         </Reveal>
 
@@ -124,17 +116,16 @@ with a strong focus on value creation, risk management, and long term capital gr
           onMouseEnter={() => setHoverPause(true)}
           onMouseLeave={() => setHoverPause(false)}
         >
-          <div className="relative overflow-hidden bg-white/[0.03] shadow-[0_30px_90px_rgba(0,0,0,0.55)]">
+          <div className="overflow-hidden bg-white/[0.03] shadow-[0_30px_90px_rgba(0,0,0,0.55)]">
             {/* viewport */}
             <div ref={emblaRef} className="overflow-hidden">
               <div className="flex">
                 {slides.map((s) => (
                   <div key={s.id} className="min-w-0 flex-[0_0_100%]">
-                    {/* not squashed: fixed heights per breakpoint */}
-                    <div className="grid lg:grid-cols-12">
+                    <div className="grid lg:min-h-[440px] lg:grid-cols-12">
                       {/* image */}
                       <div className="lg:col-span-6">
-                        <div className="relative h-60 w-full sm:h-80 lg:h-[440px]">
+                        <div className="relative h-60 w-full sm:h-80 lg:h-full lg:min-h-[440px]">
                           <Image
                             src={s.image.src}
                             alt={s.image.alt}
@@ -148,21 +139,14 @@ with a strong focus on value creation, risk management, and long term capital gr
 
                       {/* text */}
                       <div className="lg:col-span-6">
-                        <div className="flex h-full min-h-[260px] flex-col justify-center p-6 sm:p-8 lg:h-[440px] lg:p-10">
-                          <div className="flex items-center gap-4">
-                           
-                            
-                          </div>
-
-                          <h3 className="mt-5 text-5xl font-semibold text-white sm:text-5xl">
+                        <div className="flex h-full min-h-[260px] flex-col justify-center p-6 sm:p-8 lg:min-h-[440px] lg:p-10">
+                          <h3 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
                             {s.title}
                           </h3>
 
                           <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
                             {s.description}
                           </p>
-
-                          
                         </div>
                       </div>
                     </div>
@@ -171,43 +155,50 @@ with a strong focus on value creation, risk management, and long term capital gr
               </div>
             </div>
 
-            {/* controls: pause left, arrows + count right */}
-            <div className="absolute bottom-4 left-4 flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setIsPlaying((v) => !v)}
-                className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-white hover:bg-white/15 transition-colors"
-                aria-label={isPlaying ? "Pause" : "Play"}
-              >
-                {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-              </button>
-            </div>
+            {/* ✅ Dedicated control bar (no overlap) */}
+            <div className="border-t border-white/10 bg-black/35 px-4 py-3 backdrop-blur-sm sm:px-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                {/* Left controls */}
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsPlaying((v) => !v)}
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+                    aria-label={isPlaying ? "Pause" : "Play"}
+                  >
+                    {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                  </button>
 
-            <div className="absolute bottom-4 right-4 flex items-center gap-3">
-              <button
-                type="button"
-                onClick={scrollPrev}
-                className="grid h-11 w-11 place-items-center rounded-xl bg-blue-500 text-white hover:bg-white/15 transition-colors"
-                aria-label="Previous"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
+                  
+                </div>
 
-              <div className="select-none text-sm font-semibold text-white/80">
-                {selected + 1}/{slides.length}
+                {/* Right controls */}
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <button
+                    type="button"
+                    onClick={scrollPrev}
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-[#2563eb] text-white transition hover:opacity-90"
+                    aria-label="Previous"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+
+                  <div className="min-w-[52px] text-center text-sm font-semibold text-white/80">
+                    {selected + 1}/{slides.length}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={scrollNext}
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-[#2563eb] text-white transition hover:opacity-90"
+                    aria-label="Next"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                </div>
               </div>
-
-              <button
-                type="button"
-                onClick={scrollNext}
-                className="grid h-11 w-11 place-items-center rounded-xl bg-blue-500 text-white hover:bg-white/15 transition-colors"
-                aria-label="Next"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
             </div>
           </div>
-
         </div>
       </Container>
     </section>

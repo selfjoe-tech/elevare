@@ -400,15 +400,15 @@ export default function HomePage() {
         <div className="order-2 lg:order-none">
           <div className="group relative overflow-hidden ">
             {/* Use fixed height so it never collapses */}
-            <div className="relative h-[260px] w-full sm:h-[340px] lg:h-[620px]">
-              <Image
-                src="/stock/e-2.png"
-                alt="Elevare illustration"
-                fill
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 520px, 100vw"
-              />
-            </div>
+            <div className="relative mx-auto h-[220px] w-full max-w-[560px] sm:h-[280px] lg:h-[420px]">
+  <Image
+    src="/brand/logo-2.png"
+    alt="Elevare illustration"
+    fill
+    className="object-contain object-center"
+    sizes="(min-width: 1024px) 560px, (min-width: 640px) 80vw, 92vw"
+  />
+</div>
 
             {/* Blue overlay to match scheme */}
 

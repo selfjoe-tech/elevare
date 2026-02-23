@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { ArrowUpRightIcon, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 
 function SocialIcon({
   href,
@@ -34,16 +35,22 @@ export default function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
-              <div className="text-sm tracking-[0.22em] text-white">ELEVARE</div>
-              <span className="h-1.5 w-1.5 rounded-full bg-gold/80" />
-              
-            </div>
-
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
-              Sophisticated capital solutions for high-net-worth individuals, institutional investors,
-              and growth-oriented businesses.
-            </p>
+            <div className="flex flex-col items-start gap">
+                    <div className="relative h-[55px] w-[170px] sm:w-[200px]">
+                      <Image
+                        src="/brand/logo-1.png"
+                        alt="Elevare Group Holdings"
+                        fill
+                        priority
+                        className="object-contain object-left transition-opacity duration-200 group-hover:opacity-90"
+                        sizes="300px"
+                      />
+                    </div>
+            
+                    <p className="ml-5 text-[7px] tracking-[0.18em] text-white/100">
+                      IMPACT THROUGH INTEGRITY
+                    </p>
+                  </div>
 
             
 
@@ -76,16 +83,19 @@ export default function SiteFooter() {
             <div className="mt-4 grid gap-2 text-sm">
               {[
                 { href: "/about", label: "About" },
-                { href: "/services", label: "Services" },
                 { href: "/team", label: "Team" },
                 { href: "/contact", label: "Contact" },
+                { href: "/about#services", label: "Services" },
+
+
               ].map((l) => (
                 <Link
                   key={l.href}
-                  className="w-fit text-white/75 transition hover:text-white"
+                  className="w-fit flex gap-2 text-white/75 transition hover:text-white"
                   href={l.href}
                 >
                   {l.label}
+                  <ArrowUpRightIcon />
                 </Link>
               ))}
             </div>
@@ -98,27 +108,30 @@ export default function SiteFooter() {
             </div>
 
             <div className="mt-4 space-y-2 text-sm text-white/75">
-              <div>Republic of South Africa</div>
+  <a
+    className="block w-fit text-white/60 transition hover:text-white"
+    href="mailto:info@elevaregroupholdings.co.za"
+  >
+    info@elevaregroupholdings.co.za
+  </a>
 
-              <a
-                className="block w-fit text-white/60 transition hover:text-white"
-                href="mailto:info@elevaregroupholdings.co.za"
-              >
-                info@elevaregroupholdings.co.za
-              </a>
+  {/* Phone slot */}
+  <a
+    className="block w-fit text-white/60 transition hover:text-white"
+    href="tel:+27123456789"
+  >
+    +27 12 345 6789
+  </a>
 
-              <a
-                className="block w-fit text-white/60 transition hover:text-white"
-                href="https://elevaregroupholdings.co.za"
-                target="_blank"
-                rel="noreferrer"
-              >
-                elevaregroupholdings.co.za
-              </a>
-
-              {/* mini note */}
-              
-            </div>
+  <a
+    className="block w-fit text-white/60 transition hover:text-white"
+    href="https://elevaregroupholdings.co.za"
+    target="_blank"
+    rel="noreferrer"
+  >
+    elevaregroupholdings.co.za
+  </a>
+</div>
           </div>
         </div>
 

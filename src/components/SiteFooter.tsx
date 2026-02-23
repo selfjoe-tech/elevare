@@ -150,7 +150,7 @@ export function SiteFooter() {
           <div className="lg:col-span-4">
             <div className="text-sm font-semibold text-white/90">Explore</div>
             <div className="mt-3 grid gap-2">
-              <FooterLink href="/services">Services</FooterLink>
+              <FooterLink href="/about#services">Services</FooterLink>
               <FooterLink href="/approach">Investment Approach</FooterLink>
               <FooterLink href="/team">Leadership</FooterLink>
               <FooterLink href="/compliance">Compliance</FooterLink>
@@ -194,7 +194,7 @@ export function SiteFooter() {
                 </Link>
                 <Link
                   className="inline-flex h-10 items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-4 text-sm font-semibold text-white/85 transition hover:bg-white/10"
-                  href="/services"
+                  href="/about#services"
                 >
                   Explore services
                 </Link>
