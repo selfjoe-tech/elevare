@@ -58,7 +58,12 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+
+  color-scheme: only light; 
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }

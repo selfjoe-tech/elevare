@@ -52,8 +52,8 @@ export default function HomePage() {
 
                 <Reveal delay={80}>
                   <h1 className="mt-6 text-4xl leading-tight text-white sm:text-5xl md:text-6xl">
-                    Serious stewardship{" "}
-                    <span className="italic text-white/90">for serious money</span>.
+                    Impact Through{" "}
+                    <span className="italic text-white/90">Integrity</span>.
                   </h1>
                 </Reveal>
 
