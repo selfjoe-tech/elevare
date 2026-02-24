@@ -19,7 +19,7 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Elevare Group Holdings",
+  title: "Elevare Conglomerate",
   description: "Executive capital solutions and disciplined stewardship.",
 };
 
