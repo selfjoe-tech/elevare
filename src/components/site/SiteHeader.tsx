@@ -16,6 +16,7 @@ export default function SiteHeader() {
 
   const links = useMemo(
     () => [
+      { href: "/", label: "Home" },
       { href: "/about", label: "About" },
       { href: "/about#services", label: "Services" },
       { href: "/team", label: "Team" },

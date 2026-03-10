@@ -103,7 +103,7 @@ function ProfileMedia({ name, image }: { name: string; image?: string | null }) 
   if (!image) return <MediaPlaceholder name={name} />;
 
   return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+    <div className="relative aspect-[4/5] overflow-hidden ">
       <Image
         src={image}
         alt={name}
@@ -112,7 +112,6 @@ function ProfileMedia({ name, image }: { name: string; image?: string | null }) 
         className="object-cover object-center"
         sizes="(min-width: 1024px) 420px, 100vw"
       />
-      <div className="pointer-events-none absolute inset-0 bg-black/25" />
     </div>
   );
 }
@@ -208,18 +207,12 @@ export default async function ExecutiveProfilePage({
     <>
       {/* HERO (black, cleaner, less clutter) */}
       <section className="relative overflow-hidden bg-black">
-        <div className="absolute left-0 top-0 h-1 w-full bg-[#3b82f6]" />
         <div className="pointer-events-none absolute inset-0 opacity-80 [background:radial-gradient(900px_circle_at_20%_20%,rgba(59,130,246,0.20),transparent_60%),radial-gradient(850px_circle_at_85%_35%,rgba(124,58,237,0.16),transparent_55%)]" />
 
         <Container className="relative py-16 sm:py-20">
           <Reveal>
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <Link
-                href="/team"
-                className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-white/80 hover:text-white"
-              >
-                ← Back
-              </Link>
+              
 
               {/* ✅ LinkedIn (only if available) */}
               {exec.linkedin ? (
@@ -276,21 +269,7 @@ export default async function ExecutiveProfilePage({
               
 
               {/* Small “focus” card to add structure without clutter */}
-              <Reveal delay={340} from="right">
-                <div className="mt-10 rounded-[2rem] bg-white/5 p-8 backdrop-blur-md">
-                  <div className="flex items-center gap-3">
-                    <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white/10">
-                      <BriefcaseBusiness className="h-5 w-5 text-[#9ad7ff]" />
-                    </div>
-                    <div>
-                      <div className="text-lg font-semibold text-white">Executive focus</div>
-                      <div className="text-sm text-white/65">
-                        Reporting, governance, and client-first execution
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
+              
             </div>
           </div>
         </Container>
@@ -301,7 +280,7 @@ export default async function ExecutiveProfilePage({
         <Container>
           <Reveal>
             <SectionHeader
-              eyebrow="Biography"
+              
               title={
                 <>
                   Background and <span className="italic text-[#0b1020]/90">career path</span>
@@ -315,7 +294,7 @@ export default async function ExecutiveProfilePage({
             <div className="lg:col-span-8">
               <Reveal>
                 <div className="rounded-[2rem] bg-white p-10 shadow-[0_1px_0_rgba(16,24,40,0.06),0_18px_50px_rgba(16,24,40,0.10)]">
-                  <div className="space-y-5 text-base leading-relaxed text-[#0b1020]/75">
+                  <div className="space-y-5 text-base leading-relaxed text-black/90">
                     {exec.bio.map((p) => (
                       <p key={p}>{p}</p>
                     ))}
@@ -324,48 +303,7 @@ export default async function ExecutiveProfilePage({
               </Reveal>
             </div>
 
-            <div className="lg:col-span-4">
-              <Reveal delay={90}>
-                <div className="rounded-[2rem] bg-[#0a0a0a] p-8">
-                  <div className="text-xs font-sans uppercase tracking-[0.32em] text-white/55">
-                    Quick view
-                  </div>
-
-                  <div className="mt-5 space-y-3">
-                    <div className="rounded-2xl bg-white/5 px-5 py-4">
-                      <div className="text-sm font-semibold text-white">Role</div>
-                      <div className="mt-1 text-sm text-white/70">{exec.role}</div>
-                    </div>
-
-                    {exec.location ? (
-                      <div className="rounded-2xl bg-white/5 px-5 py-4">
-                        <div className="text-sm font-semibold text-white">Region</div>
-                        <div className="mt-1 text-sm text-white/70">{exec.location}</div>
-                      </div>
-                    ) : null}
-
-                    {exec.linkedin ? (
-                      <Link
-                        href={exec.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center justify-between rounded-2xl bg-white/10 px-5 py-4 text-sm font-semibold text-white hover:bg-white/15"
-                      >
-                        <span className="inline-flex items-center gap-2">
-                          <Linkedin className="h-4 w-4" />
-                          View LinkedIn profile
-                        </span>
-                        <span className="text-white/60 group-hover:text-white">→</span>
-                      </Link>
-                    ) : (
-                      <div className="rounded-2xl bg-white/5 px-5 py-4 text-sm text-white/60">
-                        LinkedIn: not provided
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </Reveal>
-            </div>
+            
           </div>
         </Container>
       </section>
@@ -380,7 +318,6 @@ export default async function ExecutiveProfilePage({
             Professional Details
           </>
         }
-        subtitle="Organized by how the executive operates, what they specialize in, and formal credentials."
         dark
       />
     </Reveal>
@@ -421,9 +358,7 @@ export default async function ExecutiveProfilePage({
         <Container>
           <Reveal>
             <div className="mx-auto max-w-4xl rounded-[2rem] bg-white/5 p-10 text-center backdrop-blur-md">
-              <div className="text-xs font-sans uppercase tracking-[0.32em] text-white/55">
-                Work with Elevare
-              </div>
+              
 
               <h2 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
                 Request an executive{" "}

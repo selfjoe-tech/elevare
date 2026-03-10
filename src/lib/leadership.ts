@@ -20,7 +20,7 @@ export const EXECUTIVES: Executive[] = [
     name: "Gracious Mutsindikwa",
     role: "Co-founder, Partner & Business Development Director",
     tagline: "Business development, corporate clients, and strategic direction.",
-    image: null,
+    image: "/images/execs/gracious.png",
     location: "Southern Africa",
     bio: [
       "Gracious Mutsindikwa is the Co-founder, Partner & Business Development Director. She commenced her career as a trainee accountant with Portland Holdings in Zimbabwe (PPC).",
@@ -53,7 +53,7 @@ export const EXECUTIVES: Executive[] = [
     name: "Smile Carnegie Sibanda",
     role: "Finance Director",
     tagline: "Financial leadership, controls, and governance support.",
-    image: null,
+    image: "/images/execs/smile.png",
     location: "Southern Africa",
     bio: [
       "Smile Carnegie Sibanda is the Finance Director. He commenced his career as a trainee accountant with the City of Harare.",
