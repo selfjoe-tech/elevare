@@ -169,23 +169,7 @@ export default function ExecutiveProfilePage({
         <div className="pointer-events-none absolute inset-0 opacity-80 [background:radial-gradient(900px_circle_at_20%_20%,rgba(59,130,246,0.20),transparent_60%),radial-gradient(850px_circle_at_85%_35%,rgba(124,58,237,0.16),transparent_55%)]" />
 
         <Container className="relative py-16 sm:py-20">
-          <Reveal>
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              
-
-              {exec.linkedin ? (
-                <Link
-                  href={exec.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center gap-2 rounded-2xl bg-white/10 px-4 font-sans text-sm font-semibold text-white hover:bg-white/15"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </Link>
-              ) : null}
-            </div>
-          </Reveal>
+          
 
           <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-4">
@@ -207,6 +191,24 @@ export default function ExecutiveProfilePage({
                   
                 </div>
               </Reveal>
+
+              <Reveal>
+                <div className="flex mt-3 flex-wrap items-center justify-between gap-4">
+              
+
+                    {exec.linkedin ? (
+                        <Link
+                        href={exec.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-11 items-center gap-2  bg-blue-500 px-4 font-sans text-sm font-semibold text-white hover:bg-white/15"
+                        >
+                        <Linkedin className="h-4 w-4" />
+                        LinkedIn
+                        </Link>
+                    ) : null}
+                    </div>
+          </Reveal>
 
               
             </div>
