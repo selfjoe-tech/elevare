@@ -147,9 +147,7 @@ export default function SiteFooter() {
               Terms
             </Link>
             <div className="hidden h-3 w-px bg-white/15 md:block" />
-            <div className="tracking-[0.22em] text-white/45">
-              DISCIPLINED CAPITAL. CLEAR REPORTING.
-            </div>
+            
           </div>
         </div>
       </Container>

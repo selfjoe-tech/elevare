@@ -5,7 +5,6 @@ import SiteHeader from "@/components/site/SiteHeader";
 import SiteFooter from "@/components/site/SiteFooter";
 import NextTopLoader from "nextjs-toploader";
 
-
 const serif = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -18,9 +17,56 @@ const sans = Inter({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+
 export const metadata: Metadata = {
-  title: "Elevare Conglomerate",
-  description: "Executive capital solutions and disciplined stewardship.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Elevare Conglomerate",
+    template: "%s | Elevare Conglomerate",
+  },
+  description:
+    "Private equity, wealth management, funding facilitation and risk management.",
+  applicationName: "Elevare Conglomerate",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Elevare Conglomerate",
+    title: "Elevare Conglomerate",
+    description:
+      "Private equity, wealth management, funding facilitation and risk management.",
+    locale: "en_ZA",
+    images: [
+      {
+        url: "/brand/icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Elevare Conglomerate",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elevare Conglomerate",
+    description:
+      "Private equity, wealth management, funding facilitation and risk management.",
+    images: ["/brand/icon.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  
 };
 
 export default function RootLayout({
@@ -29,17 +75,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body className="bg-[#0a0a0a]">
-        <NextTopLoader
-          color="#37c2d4"     // gold-ish
-          height={2}
-          showSpinner={false}
-          zIndex={9999}
-        />
+        <NextTopLoader color="#37c2d4" height={2} showSpinner={false} zIndex={9999} />
         <div className="min-h-screen">
-          {/* Outer subtle sheen (like the video’s soft surround) */}
           <div className="pointer-events-none fixed inset-0 [background:radial-gradient(60%_60%_at_50%_0%,rgba(200,162,74,0.08)_0%,transparent_65%)]" />
-
-          {/* Stage */}
           <div className="relative overflow-hidden bg-ink shadow-elite">
             <a
               href="#content"
