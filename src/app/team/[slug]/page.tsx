@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { EXECUTIVES, getExecutive } from "@/lib/leadership";
 import ExecutiveProfilePage from "./ExecutiveProfilePage";
@@ -22,12 +23,7 @@ export async function generateMetadata({
   const exec = getExecutive(slug);
 
   if (!exec) {
-    return {
-      robots: {
-        index: false,
-        follow: false,
-      },
-    };
+    return { robots: { index: false, follow: false } };
   }
 
   const pending = isPendingProfile(exec.name);
@@ -46,10 +42,15 @@ export async function generateMetadata({
       title,
       description,
       url: `/team/${exec.slug}`,
+      siteName: "Elevare Conglomerate",
+      locale: "en_ZA",
+      type: "profile",
       images: [
         {
           url: exec.image || "/brand/icon.png",
-          alt: exec.name,
+          width: 1200,
+          height: 630,
+          alt: `${exec.name} — ${exec.role} at Elevare Conglomerate`,
         },
       ],
     },
@@ -60,10 +61,7 @@ export async function generateMetadata({
       images: [exec.image || "/brand/icon.png"],
     },
     robots: pending
-      ? {
-          index: false,
-          follow: false,
-        }
+      ? { index: false, follow: false }
       : {
           index: true,
           follow: true,
@@ -86,9 +84,7 @@ export default async function Page({
   const { slug } = await params;
   const exec = getExecutive(slug);
 
-  if (!exec) {
-    notFound();
-  }
+  if (!exec) notFound();
 
   const pending = isPendingProfile(exec.name);
   const profileUrl = `${siteUrl}/team/${exec.slug}`;
@@ -101,39 +97,32 @@ export default async function Page({
           {
             "@type": "BreadcrumbList",
             itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: `${siteUrl}/`,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Leadership",
-                item: `${siteUrl}/team`,
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: exec.name,
-                item: profileUrl,
-              },
+              { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+              { "@type": "ListItem", position: 2, name: "Team", item: `${siteUrl}/team` },
+              { "@type": "ListItem", position: 3, name: exec.name, item: profileUrl },
             ],
           },
           {
             "@type": "ProfilePage",
             url: profileUrl,
             name: `${exec.name} | ${exec.role}`,
+            inLanguage: "en-ZA",
+            isPartOf: { "@type": "WebSite", url: siteUrl, name: "Elevare Conglomerate" },
             mainEntity: {
               "@type": "Person",
               name: exec.name,
               url: profileUrl,
               jobTitle: exec.role,
               description: exec.bio.join(" "),
-              image: exec.image ? `${siteUrl}${exec.image}` : undefined,
-              sameAs: exec.linkedin ? [exec.linkedin] : undefined,
-              knowsAbout: exec.expertise,
+              ...(exec.image ? { image: `${siteUrl}${exec.image}` } : {}),
+              ...(exec.location ? { address: { "@type": "PostalAddress", addressRegion: exec.location } } : {}),
+              ...(exec.linkedin ? { sameAs: [exec.linkedin] } : {}),
+              ...(exec.expertise?.length ? { knowsAbout: exec.expertise } : {}),
+              ...(exec.credentials?.length ? { hasCredential: exec.credentials.map((c) => ({
+                "@type": "EducationalOccupationalCredential",
+                credentialCategory: "degree",
+                name: c,
+              })) } : {}),
               worksFor: {
                 "@type": "Organization",
                 name: "Elevare Conglomerate",
@@ -148,12 +137,14 @@ export default async function Page({
   return (
     <>
       {jsonLd ? (
-        <script
+        <Script
+          id={`schema-exec-${exec.slug}`}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       ) : null}
-
       <ExecutiveProfilePage exec={exec} />
     </>
   );
