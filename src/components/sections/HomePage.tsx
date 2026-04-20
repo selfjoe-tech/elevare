@@ -74,77 +74,7 @@ export default function HomePage() {
       </section>
 
       {/* “Numbers speak” section (video motif) */}
-      <section className="[background:radial-gradient(90%_80%_at_30%_40%,rgba(47,107,255,0.60)_0%,rgba(47,107,255,0.28)_40%,rgba(47,107,255,0.14)_62%,rgba(5,5,5,1)_84%)] py-18 sm:py-22 bg-white/100">
-        
-
-      {/* Mosaic cards (like the video’s feature grid) */}
-        <Container>
-  <section className="py-20">
-    {/* Column wrapper */}
-    <div className="flex flex-col items-center">
-      <Reveal>
-        <h2 className="text-center text-3xl font-semibold text-white sm:text-4xl">
-          Support when you need it
-        </h2>
-      </Reveal>
-
-      {/* 3 features */}
-      <div className="mt-12 grid w-full max-w-6xl text-center gap-y-10 md:grid-cols-3 md:gap-x-0">
-  {[
-    { letter: "A", title: "Corporate Finance Advisory" },
-    { letter: "B", title: "Capital Raising & Investor Readiness" },
-    { letter: "C", title: "Transaction Advisory (M&A Support)" },
-    { letter: "D", title: "Private Equity (Principal Investing)" },
-    { letter: "E", title: "Due Diligence & Business Analysis" },
-    { letter: "F", title: "Training & Advisory Workshops" },
-  ].map((item, index) => (
-    <Reveal key={item.letter} delay={index * 80}>
-      <div
-        className={`flex flex-col items-center px-0 md:px-10 ${
-          index % 3 !== 2 ? "md:border-r md:border-white/10" : ""
-        } ${index < 3 ? "md:pb-10" : ""}`}
-      >
-        
-
-        <h3 className="mt-5 text-lg font-semibold text-white">{item.title}</h3>
-      </div>
-    </Reveal>
-  ))}
-</div>
-
-
-      {/* Big image space below */}
-      {/* Big image space below */}
-  <div className="mt-14 w-full max-w-6xl">
-    <div className="group relative overflow-hidden bg-white/5 shadow-[0_22px_60px_rgba(0,0,0,0.35)]">
-      {/* IMAGE: fixed heights so it always renders */}
-      <div className="relative h-[220px] w-full sm:h-[320px] lg:h-[520px] ">
-        <Image
-          src="/stock/bus-1.jpg"
-          alt="Elevare support overview"
-          fill
-          className="object-cover rounded-[20px]"
-          sizes="(min-width: 1024px) 1024px, 100vw,"
-        />
-      </div>
-
-      {/* Soft overlay for the executive vibe */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_80%_at_30%_35%,rgba(47,107,255,0.22)_0%,rgba(154,215,255,0.10)_40%,rgba(10,10,10,0.0)_70%)] opacity-100 transition-opacity duration-300 group-hover:opacity-90 motion-reduce:transition-none" />
-
-      {/* Slight dark wash so text stays readable */}
-      <div className="pointer-events-none absolute inset-0 bg-black/25" />
-
-      {/* Caption strip */}
-      
-    </div>
-  </div>
-
-    </div>
-  </section>
-</Container>
-
-
-      </section>
+     
 
       <CapabilityShowcase />
 
