@@ -115,8 +115,7 @@ export default function ContactPage() {
             <div className="lg:col-span-5">
               <Reveal>
                 <h2 className="text-5xl leading-tight text-white sm:text-5xl">
-                  Submit an{" "}
-                  <span className="italic text-white/90">enquiry</span>
+                  Submit an enquiry
                 </h2>
                 <p className="mt-4 text-white/70">
                   Provide the objective, timeline, and constraints. We’ll respond with a structured next step.
@@ -280,12 +279,10 @@ export default function ContactPage() {
         <Container>
           <Reveal>
             <div className="mx-auto max-w-4xl rounded-[2rem] bg-white/5 p-10 text-center backdrop-blur-md">
-              <div className="text-xs font-sans uppercase tracking-[0.32em] text-gold/85">
-                Ready
-              </div>
+              
               <h2 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
-                Let’s align your capital{" "}
-                <span className="italic text-white/90">with governance</span>.
+                Let’s align <span className="italic text-white/90">your {" "}</span>capital with success
+                
               </h2>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:justify-center">
                 <ButtonLink href="#contact-form" variant="gold">

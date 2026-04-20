@@ -116,8 +116,7 @@ export default function CapabilityShowcase() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <h2 className="text-4xl leading-tight text-[#0b1020] sm:text-5xl">
-              Statistic capability,{" "}
-              <span className="italic text-[#0b1020]/90">built on discipline</span>
+              Statistic capability
             </h2>
           </Reveal>
           <Reveal delay={90}>
@@ -188,9 +187,7 @@ export default function CapabilityShowcase() {
           <div className="lg:col-span-6">
             <Reveal delay={120}>
               <div className="h-full rounded-[2.25rem] border border-black/5 bg-white p-8 shadow-[0_1px_0_rgba(16,24,40,0.06),0_22px_60px_rgba(16,24,40,0.12)]">
-                <div className="text-xs uppercase tracking-[0.28em] text-[#0b1020]/45">
-                  Mission-driven execution
-                </div>
+                
 
                 <h3 className="mt-4 text-3xl leading-tight text-[#0b1020]">
                   We structure and manage capital efficiently.

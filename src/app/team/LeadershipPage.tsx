@@ -125,8 +125,7 @@ export default function LeadershipPage() {
             <div className="mx-auto max-w-4xl rounded-[2rem] bg-white/5 p-10 text-center backdrop-blur-md">
               
               <h2 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
-                Want an executive{" "}
-                <span className="italic text-white/90">brief</span>?
+                Want an executive brief?
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-white/70">
                 Share your objective and we’ll respond with a structured approach and clear next steps.

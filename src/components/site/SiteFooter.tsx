@@ -69,10 +69,23 @@ export default function SiteFooter() {
                 <Facebook className="h-5 w-5" />
               </SocialIcon>
 
-              <div className="ml-1 text-xs text-white/45">
+              <div className="ml-1 text-xs text-white">
                 Follow for updates & insights.
               </div>
+
+              
             </div>
+
+            <div className="text-xl mt-5 text-white">
+                Disclaimer
+
+
+              </div>
+
+
+              We do not provide financial advice or intermediary services as defined under 
+              applicable financial services regulations. All services are limited to advisory, 
+              support, and principal investing activities.
           </div>
 
           {/* Navigation */}
@@ -82,10 +95,12 @@ export default function SiteFooter() {
             </div>
             <div className="mt-4 grid gap-2 text-sm">
               {[
+                { href: "/", label: "Home" },
                 { href: "/about", label: "About" },
+                { href: "/about#services", label: "Services" },
                 { href: "/team", label: "Team" },
                 { href: "/contact", label: "Contact" },
-                { href: "/about#services", label: "Services" },
+                
 
 
               ].map((l) => (
@@ -138,6 +153,8 @@ export default function SiteFooter() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
           <div>© {new Date().getFullYear()} Elevare Group Holdings (Pty) Ltd</div>
+
+          
 
           <div className="flex flex-wrap items-center gap-4">
             <Link className="text-white/50 hover:text-white/80" href="/privacy">

@@ -44,13 +44,10 @@ export function WeWork () {
                   <Reveal>
                    <div className="mb-2 h-[3px] w-10 rounded-full bg-[#3b82f6]" />
 
-                    <h2 className="text-3xl leading-tight text-white sm:text-4xl">
-                      How we work.{" "}<br/>
-                      <span className="italic text-white/90">The executive process</span>
+                    <h2 className="text-6xl leading-tight font-bold text-white sm:text-6xl">
+                      Our Approach
                     </h2>
-                    <p className="mt-4 text-white/70">
-                      We keep decisions structured: document assumptions, map risk early, and report clearly.
-                    </p>
+                    
                   </Reveal>
     
                   
@@ -59,18 +56,14 @@ export function WeWork () {
                     <div className="mt-10 h-px w-28 bg-white/10" />
                   </Reveal>
     
-                  <Reveal delay={220}>
-                    <div className="mt-8 text-sm text-white/65">
-                      Outcome: fewer surprises, clearer trade-offs, and better decisions under real constraints.
-                    </div>
-                  </Reveal>
+                  
                 </div>
     
                 <div className="grid gap-6 lg:col-span-7 lg:grid-cols-2">
                   {[
                     {
                       n: "01",
-                      t: "Discovery",
+                      t: "Partnership-driven",
                       d: "Objectives, constraints, timelines, confidentiality boundaries.",
                       icon: <Users className="h-5 w-5 text-gold" />,
                     },
@@ -82,13 +75,13 @@ export function WeWork () {
                     },
                     {
                       n: "03",
-                      t: "Structuring",
+                      t: "Data-led decision making",
                       d: "Debt, equity, and hybrid structures aligned to real-world constraints.",
                       icon: <Scale className="h-5 w-5 text-gold" />,
                     },
                     {
                       n: "04",
-                      t: "Reporting",
+                      t: "Strong focus on long-term value creation",
                       d: "Executive summaries, action items, and risk flags on an agreed cadence.",
                       icon: <BadgeCheck className="h-5 w-5 text-gold" />,
                     },
@@ -165,9 +158,11 @@ export function AboutHero() {
                   once
                   revealFill
                 >
-                  Elevare Group Holdings (Pty) Ltd is a South Africa based alternative investment and
-                  financial advisory firm providing sophisticated capital solutions to high net worth
-                  individuals, institutional investors, and growth oriented businesses.
+                  We are a corporate finance and private equity firm 
+                  focused on supporting businesses with capital raising, 
+                  strategic growth, and transaction execution. 
+                  We partner with founders, SMEs, and investors to unlock 
+                  value through structured deals and financial insight
                 </LightSweepText>
               </div>
             </Reveal>
@@ -380,24 +375,11 @@ export function ComplianceSection() {
         <Container>
           <Reveal>
             <div className="mx-auto max-w-4xl text-center">
-              <h2 className="text-4xl leading-tight text-black sm:text-5xl">
-                Compliance and{" "}
-                <span className="italic text-black">professional standards</span>
+              <h2 className="text-6xl leading-tight text-black sm:text-8xl">
+                Give us a call? 
               </h2>
 
-            <LightSweepText
-              className="mt-6 text-xl leading-relaxed"
-              baseClassName="text-[#71fff8]/55"
-              finalClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#3b82f6] to-[#1d4ed8]"
-              highlightColor="#a5cbfc"
-              durationMs={1400}
-              delayMs={80}
-              once
-              revealFill
-            >                Elevare Group Holdings operates with a governance-first mindset and aligns with South African
-                financial regulation expectations, including licensing and registration requirements (where applicable),
-                with a focus on disciplined reporting and client confidentiality.
-              </LightSweepText>
+            
 
               {/* Pill chips */}
               
@@ -495,22 +477,22 @@ export function WhoWeServeSection() {
   const items = [
     {
       icon: <Users className="h-5 w-5" />,
-      metric: "HNWIs",
+      metric: "SMEs and growing businesses",
       desc: "Private capital needs, structured execution, and discreet engagement.",
     },
     {
       icon: <Home className="h-5 w-5" />,
-      metric: "Family",
+      metric: "Startups seeking funding",
       desc: "Multi-year planning, governance-led decisions, and clear reporting.",
     },
     {
       icon: <Landmark className="h-5 w-5" />,
-      metric: "Institutions",
+      metric: "Investors and family offices",
       desc: "Mandate-aware structures with risk discipline and documentation rigor.",
     },
     {
       icon: <Building2 className="h-5 w-5" />,
-      metric: "SMEs",
+      metric: "Corporate clients",
       desc: "Growth or restructuring capital supported by executive-level process.",
     },
     // If you want 5, we can do 5-up on xl. The reference is 4-up, so this is optional.
@@ -529,23 +511,10 @@ export function WhoWeServeSection() {
           <Reveal>
             
 
-            <h3 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
-              Target clients with{" "}
-              <span className="italic text-white/90">serious intent</span>
+            <h3 className="mt-4 text-8xl leading-tight font-bold text-white sm:text-5xl">
+              Clients
             </h3>
 
-             <LightSweepText
-              className="mt-6 text-xl leading-relaxed"
-              baseClassName="text-[#71fff8]/55"
-              finalClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#3b82f6] to-[#1d4ed8]"
-              highlightColor="#a5cbfc"
-              durationMs={1400}
-              delayMs={80}
-              once
-              revealFill
-            > 
-              We work with client profiles that value discretion, clarity, and disciplined execution.
-            </LightSweepText>
           </Reveal>
         </div>
 
@@ -573,24 +542,7 @@ export function WhoWeServeSection() {
         </div>
 
         {/* Optional: if you still want the 5th item (International investors) in the same style */}
-        <div className="mt-10 hidden xl:block">
-          <div className="grid grid-cols-5 gap-10">
-            <Reveal delay={320}>
-              <div className="col-span-1 relative">
-                <div className="h-[3px] w-10 rounded-full bg-[#3b82f6]" />
-                <div className="mt-6 flex items-baseline gap-3">
-                  
-                  <div className="text-4xl font-semibold tracking-tight text-white">
-                    Global
-                  </div>
-                </div>
-                <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-                  African market insight, access support, and disciplined oversight.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
+        
       </Container>
     </section>
   );

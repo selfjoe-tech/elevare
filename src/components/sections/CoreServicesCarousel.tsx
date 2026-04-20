@@ -12,49 +12,138 @@ type Slide = {
   id: string;
   eyebrow?: string;
   title: string;
-  description: string;
   image: { src: string; alt: string };
   href?: string;
+
+  sections?: {
+    label: string;
+    items: string[];
+  }[];
 };
+
 
 const SLIDES: Slide[] = [
   {
+    id: "corporate-finance-advisory",
+    eyebrow: "CFA",
+    title: "Corporate Finance Advisory",
+    image: { src: "/stock/bus-15.jpg", alt: "Corporate Finance Advisory" },
+    href: "/services#corporate-finance-advisory",
+    sections: [
+      {
+        label: "Services include",
+        items: [
+          "Financial modelling and forecasting",
+          "Business valuations",
+          "Strategic planning and growth advisory",
+          "Capital structure optimization",
+        ],
+      },
+    ],
+  },
+
+  {
+    id: "capital-raising-investor-readiness",
+    eyebrow: "CR",
+    title: "Capital Raising & Investor Readiness",
+    image: { src: "/stock/bus-16.jpg", alt: "Capital Raising" },
+    href: "/services#capital-raising-investor-readiness",
+    sections: [
+      {
+        label: "Services include",
+        items: [
+          "Investment readiness assessments",
+          "Pitch deck preparation",
+          "Financial packaging and data rooms",
+          "Investor introductions (non-advisory)",
+        ],
+      },
+      {
+        label: "Note",
+        items: [
+          "We facilitate introductions and provide support materials",
+          "We do not provide investment advice or act as an intermediary",
+        ],
+      },
+    ],
+  },
+
+  {
+    id: "transaction-advisory",
+    eyebrow: "TA",
+    title: "Transaction Advisory (M&A Support)",
+    image: { src: "/stock/bus-17.jpg", alt: "Transaction Advisory" },
+    href: "/services#transaction-advisory",
+    sections: [
+      {
+        label: "Services include",
+        items: [
+          "Deal structuring (non-regulated)",
+          "Due diligence coordination",
+          "Buyer/seller identification",
+          "Negotiation support",
+        ],
+      },
+    ],
+  },
+
+  {
     id: "private-equity",
     eyebrow: "PE",
-    title: "Private Equity",
-    description:
-      "Growth capital and buyout investments, sector focused strategies, active portfolio management, and exit planning.",
-    image: { src: "/stock/bus-15.jpg", alt: "Private Equity" },
+    title: "Private Equity (Principal Investing)",
+    image: { src: "/stock/bus-18.jpg", alt: "Private Equity" },
     href: "/services#private-equity",
+    sections: [
+      {
+        label: "Focus areas",
+        items: [
+          "SME growth-stage investments",
+          "Strategic minority stakes",
+          "Sector-focused opportunities",
+        ],
+      },
+    ],
   },
+
   {
-    id: "wealth",
-    eyebrow: "WM",
-    title: "Wealth Management",
-    description:
-      "Personalized portfolio construction, allocation and risk profiling, generational wealth planning, and estate/succession support (with legal partners).",
-    image: { src: "/stock/bus-16.jpg", alt: "Wealth Management" },
-    href: "/services#wealth",
+    id: "due-diligence-business-analysis",
+    eyebrow: "DD",
+    title: "Due Diligence & Business Analysis",
+    image: { src: "/about/2.avif", alt: "Due Diligence" },
+    href: "/services#due-diligence-business-analysis",
+    sections: [
+      {
+        label: "Services include",
+        items: [
+          "Commercial due diligence",
+          "Financial analysis",
+          "Operational reviews",
+          "Market and industry research",
+        ],
+      },
+    ],
   },
+
   {
-    id: "funding",
-    eyebrow: "FF",
-    title: "Funding Facilitation",
-    description:
-      "Capital raising for SMEs and corporates, structuring debt/equity/hybrids, investor introductions, modelling, and investment readiness support.",
-    image: { src: "/stock/bus-17.jpg", alt: "Funding Facilitation" },
-    href: "/services#funding",
-  },
-  {
-    id: "risk",
-    eyebrow: "RM",
-    title: "Risk Management",
-    description:
-      "Governance aligned decisions, disciplined review cycles, and clear reporting structures.",
-    image: { src: "/stock/bus-18.jpg", alt: "Risk Management" },
-    href: "/services#risk",
+    id: "training-advisory-workshops",
+    eyebrow: "TAW",
+    title: "Training & Advisory Workshops",
+    image: { src: "/about/1.avif", alt: "Workshops" },
+    href: "/services#training-advisory-workshops",
+    sections: [
+      {
+        label: "Topics include",
+        items: [
+          "How to raise capital",
+          "Financial fundamentals for founders",
+          "Private equity and deal structuring basics",
+        ],
+      },
+    ],
   },
 ];
+
+
 
 export default function CoreServicesCarousel({
   title = "Core Services",
@@ -100,6 +189,8 @@ export default function CoreServicesCarousel({
     return () => window.clearInterval(t);
   }, [emblaApi, isPlaying, hoverPause, autoPlayMs]);
 
+  
+
   return (
     <section className="relative overflow-hidden bg-black py-20 sm:py-24" id="services">
       <div className="pointer-events-none absolute inset-0 bg-black" />
@@ -144,9 +235,26 @@ export default function CoreServicesCarousel({
                             {s.title}
                           </h3>
 
-                          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
-                            {s.description}
-                          </p>
+                          <div className="mt-3 max-w-xl space-y-4 text-sm text-white/70 sm:text-base">
+                            {s.sections?.map((section) => (
+                              <div key={section.label}>
+                              <div
+                                className={`mt-10 text-2xl font-bold ${
+                                  section.label === "Note" ? "text-white italic font-normal" : "text-white"
+                                }`}
+                              >
+                                {section.label === "Note" ? "Note*" : section.label}
+                              </div>
+                                <div className={`mt-1 space-y-1 ${section.label === "Note" ? "text-white italic font-normal" : "text-white"}`}>
+                                  {section.items.map((item) => (
+                                    <div key={item} className="flex text-white">
+                                      <ChevronRight className="text-blue-500" size={30} />{item}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>

@@ -36,7 +36,7 @@ export default function HomePage() {
                 <Reveal delay={80}>
                   <h1 className="mt-6 text-4xl leading-tight text-white sm:text-5xl md:text-6xl">
                     Impact Through{" "}
-                    <span className="italic text-white/90">Integrity</span>.
+                    Integrity
                   </h1>
                 </Reveal>
 
@@ -89,72 +89,27 @@ export default function HomePage() {
       </Reveal>
 
       {/* 3 features */}
-      <div className="mt-12 grid w-full max-w-6xl text-center md:grid-cols-3 md:gap-0">
-  {/* Item 1 */}
-  <Reveal>
-    <div className="flex flex-col items-center px-0 md:px-10 md:pr-12 md:border-r md:border-white/10">
-      <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
-        <BriefcaseBusiness className="h-6 w-6 text-gold" />
-      </div>
-
-      <h3 className="mt-5 text-lg font-semibold text-white">Private Equity</h3>
-
-      <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
-        Growth capital, buyouts, portfolio support, and exit strategy planning.
-      </p>
-
-      <Link
-        href="/about#services"
-        className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
+      <div className="mt-12 grid w-full max-w-6xl text-center gap-y-10 md:grid-cols-3 md:gap-x-0">
+  {[
+    { letter: "A", title: "Corporate Finance Advisory" },
+    { letter: "B", title: "Capital Raising & Investor Readiness" },
+    { letter: "C", title: "Transaction Advisory (M&A Support)" },
+    { letter: "D", title: "Private Equity (Principal Investing)" },
+    { letter: "E", title: "Due Diligence & Business Analysis" },
+    { letter: "F", title: "Training & Advisory Workshops" },
+  ].map((item, index) => (
+    <Reveal key={item.letter} delay={index * 80}>
+      <div
+        className={`flex flex-col items-center px-0 md:px-10 ${
+          index % 3 !== 2 ? "md:border-r md:border-white/10" : ""
+        } ${index < 3 ? "md:pb-10" : ""}`}
       >
-        Find out more <span aria-hidden className="text-gold">→</span>
-      </Link>
-    </div>
-  </Reveal>
+        
 
-  {/* Item 2 */}
-  <Reveal delay={80}>
-    <div className="flex flex-col items-center px-0 md:px-10 md:border-r md:border-white/10">
-      <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
-        <HandCoins className="h-6 w-6 text-gold" />
+        <h3 className="mt-5 text-lg font-semibold text-white">{item.title}</h3>
       </div>
-
-      <h3 className="mt-5 text-lg font-semibold text-white">Funding Facilitation</h3>
-
-      <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
-        Debt, equity, and hybrid instruments with investor introductions and deal structuring.
-      </p>
-
-      <Link
-        href="/about#services"
-        className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
-      >
-        Hone your structure <span aria-hidden className="text-gold">→</span>
-      </Link>
-    </div>
-  </Reveal>
-
-  {/* Item 3 */}
-  <Reveal delay={160}>
-    <div className="flex flex-col items-center px-0 md:px-10 md:pl-12">
-      <div className="grid h-12 w-12 place-items-center rounded-md border border-gold/25 bg-gold/12">
-        <ShieldCheck className="h-6 w-6 text-gold" />
-      </div>
-
-      <h3 className="mt-5 text-lg font-semibold text-white">Risk Management</h3>
-
-      <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
-        Transparent reporting, compliance alignment, and disciplined review cycles.
-      </p>
-
-      <Link
-        href="/about#services"
-        className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold/90 transition hover:text-gold"
-      >
-        Join the review <span aria-hidden className="text-gold">→</span>
-      </Link>
-    </div>
-  </Reveal>
+    </Reveal>
+  ))}
 </div>
 
 
@@ -218,8 +173,9 @@ export default function HomePage() {
       <Reveal>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-4xl leading-tight text-white sm:text-5xl">
-            Close the performance gap{" "}
-            <span className="italic text-white/90">in your capital</span>.
+            Close the performance gap in{" "}
+            <span className="italic text-white/90">your </span>
+            capital
           </h2>
 
           <p className="mt-5 text-white/70">
@@ -306,7 +262,7 @@ export default function HomePage() {
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-4xl text-white">
-                Have a <span className="italic">question</span>?
+                Questions?
               </h2>
               <p className="mt-4 text-white/70">
                 Clear answers to common questions about how we work.
@@ -359,8 +315,9 @@ export default function HomePage() {
       <Reveal>
         <div className="max-w-2xl">
           <h2 className="text-4xl leading-tight text-white sm:text-5xl">
-            Ready to shape the future{" "}
-            <span className="italic text-white">of your capital</span>?
+            Ready to shape the future of{" "}
+            <span className="italic text-white"> your </span>
+            capital?
           </h2>
 
           <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
