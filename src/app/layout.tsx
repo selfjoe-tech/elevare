@@ -20,9 +20,9 @@ const sans = Inter({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
 const siteName = "Elevare Conglomerate";
 const defaultTitle =
-  "Elevare Conglomerate | Private Equity, Wealth Management & Risk in South Africa";
+  "Elevare Conglomerate | Corporate Finance Advisory, Capital Raising & Investor Readiness, Transaction Advisory (M&A Support), Private Equity (Principal Investing), Due Diligence & Business Analysis, Training & Advisory Workshops";
 const defaultDescription =
-  "Elevare Conglomerate delivers private equity, wealth management, funding facilitation, and risk management services in South Africa.";
+  "Elevare Conglomerate delivers Corporate Finance Advisory, Capital Raising & Investor Readiness, Transaction Advisory (M&A Support), Private Equity (Principal Investing), Due Diligence & Business Analysis, Training & Advisory Workshops services in South Africa.";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -173,36 +173,56 @@ const financialServiceSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Private Equity",
+          name: "Corporate Finance Advisory",
           description:
-            "Private equity investment and portfolio management services in South Africa.",
+            "Financial modelling and forecasting, Business valuations, Strategic planning and growth advisory, Capital structure optimization"
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Wealth Management",
+          name: "Capital Raising & Investor Readiness",
           description:
-            "Comprehensive wealth management and financial planning services for individuals and institutions.",
+            "Investment readiness assessments, Pitch deck preparation, Financial packaging and data rooms, Investor introductions (non-advisory)",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Funding Facilitation",
+          name: "Transaction Advisory (M&A Support)",
           description:
-            "Business funding facilitation and capital access support for growth-stage companies in South Africa.",
+        "Deal structuring (non-regulated), Due diligence coordination, Buyer/seller identificationNegotiation support"
+      },
+    },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Private Equity (Principal Investing)",
+          description:
+        "SME growth-stage investments, Strategic minority stakes, Sector-focused opportunities",        
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Risk Management",
+          name: "Due Diligence & Business Analysis",
           description:
-            "Risk assessment, mitigation strategy, and risk management advisory for businesses and investors.",
+          "Commercial due diligence, Financial analysis,Operational reviews, Market and industry research"        
+
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Training & Advisory Workshops",
+          description:
+          "How to raise capital, Financial fundamentals for founders, Private equity and deal structuring basics"     
+          
         },
       },
     ],
