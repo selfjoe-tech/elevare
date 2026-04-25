@@ -266,7 +266,7 @@ const qrOuter = qrSize + 28 // padding + border space
                     style={{ width: qrSize - 16, height: qrSize - 16 }}
                   >
                     <StyledQrCode
-                      value="https://elevare-lac.vercel.app/gracious"
+                      value="https://elevare-lac.vercel.app/card/gracious"
                       logoUrl="/brand/logo-2.png"
                       size={qrSize - 15}
                     />
