@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import SiteHeader from "@/components/site/SiteHeader";
@@ -233,12 +233,38 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body className="bg-[#0a0a0a]">
-        
+    <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(financialServiceSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+
+        <NextTopLoader color="#37c2d4" height={2} showSpinner={false} zIndex={9999} />
+
+        <div className="min-h-screen">
+          <div className="pointer-events-none fixed inset-0 [background:radial-gradient(60%_60%_at_50%_0%,rgba(200,162,74,0.08)_0%,transparent_65%)]" />
+
+          <div className="relative overflow-hidden bg-ink shadow-elite">
+            <SiteHeader />
             <main id="content">{children}</main>
-            
-      </body>
-    </html>
+            <SiteFooter />
+          </div>
+        </div>
+    </>
+     
   );
 }

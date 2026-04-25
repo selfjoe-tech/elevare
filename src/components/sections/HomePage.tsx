@@ -75,7 +75,6 @@ export default function HomePage() {
 
       {/* “Numbers speak” section (video motif) */}
      
-
       <CapabilityShowcase />
 
 
