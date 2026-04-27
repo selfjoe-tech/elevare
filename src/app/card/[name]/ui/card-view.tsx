@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 import {
   Mail,
   Phone,
@@ -26,6 +26,13 @@ export default function CardView({ data }: { data: CardData }) {
   const [shareUrl, setShareUrl] = useState('')
   const [copied, setCopied] = useState(false)
   const [isDesktop, setIsDesktop] = useState(false)
+
+  const prefersReducedMotion = useReducedMotion()
+const [isMobile, setIsMobile] = useState(false)
+
+useEffect(() => {
+  setIsMobile(window.innerWidth < 640)
+}, [])
 
   const qrSize = 170
 const qrOuter = qrSize + 28 // padding + border space
@@ -57,6 +64,10 @@ const qrOuter = qrSize + 28 // padding + border space
       // no-op
     }
   }
+
+  const cardInitial = isMobile ? { opacity: 0, y: 8 } : { opacity: 0, y: 24, scale: 0.97 }
+const cardAnimate = isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, scale: 1 }
+const cardTransition = { duration: isMobile ? 0.18 : 0.45, ease: 'easeOut' }
 
     const downloadVCard = () => {
     const vcard = `BEGIN:VCARD
@@ -165,15 +176,6 @@ const qrOuter = qrSize + 28 // padding + border space
       {/* Bottom Action Bar */}
         <div className="fixed bottom-0 left-0 right-0 z-[90] flex justify-center px-4 pb-4 bg-transparent">
             <div className="bg-transparent flex w-full justify-center max-w-sm gap-3  p-3 ">
-
-                <button
-                onClick={downloadVCard}
-                className="flex gap-2 justify-center items-center p-5 rounded-xl bg-[#223bc5] py-3 text-sm font-medium text-white transition hover:opacity-90"
-                >
-                    <UserPlus />
-                Save Contact
-                </button>
-
                 <button
                 onClick={() => setShareOpen(true)}
                 className="flex p-5 gap-2 justify-center items-center items-center justify-center rounded-xl border border-zinc-200 bg-white py-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50"
@@ -189,7 +191,7 @@ const qrOuter = qrSize + 28 // padding + border space
       <AnimatePresence>
   {shareOpen && (
     <motion.div
-      className="fixed inset-0 z-[100] bg-black/40 px-4 backdrop-blur-[2px]"
+      className="fixed inset-0 z-100 bg-black/40 sm:backdrop-blur-[2px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -197,9 +199,9 @@ const qrOuter = qrSize + 28 // padding + border space
     >
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        initial={isDesktop ? { opacity: 0, scale: 0.96, y: 8 } : { opacity: 0, y: 40 }}
-        animate={isDesktop ? { opacity: 1, scale: 1, y: 0 } : { opacity: 1, y: 0 }}
-        exit={isDesktop ? { opacity: 0, scale: 0.96, y: 8 } : { opacity: 0, y: 40 }}
+        initial={isMobile ? { opacity: 0, y: 24 } : { opacity: 0, scale: 0.96, y: 8 }}
+        animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, scale: 1, y: 0 }}
+        exit={isMobile ? { opacity: 0, y: 24 } : { opacity: 0, scale: 0.96, y: 8 }}
         transition={{ duration: 0.22, ease: 'easeOut' }}
         className={[
           'fixed left-1/2 w-[min(92vw,38rem)] -translate-x-1/2 overflow-hidden bg-white shadow-2xl',
