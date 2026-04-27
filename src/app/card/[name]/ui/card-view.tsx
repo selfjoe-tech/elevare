@@ -9,6 +9,8 @@ import {
   Send,
   Copy,
   QrCodeIcon,
+  Share,
+  Share2Icon,
 } from 'lucide-react'
 import type { CardData } from '@/lib/cards'
 import SocialLinks from '@/components/social-links'
@@ -145,8 +147,8 @@ END:VCARD`
             onClick={() => setShareOpen(true)}
             className="flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-[#223bc5] px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-50"
           >
-            <QrCodeIcon className="h-7 w-7 text-white" />
-            QR Code
+            <Share2Icon className="h-5 w-5 text-white" />
+            Share
           </button>
 
           
