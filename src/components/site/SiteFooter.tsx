@@ -154,6 +154,16 @@ export default function SiteFooter() {
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
           <div>© {new Date().getFullYear()} Elevare Group Holdings (Pty) Ltd</div>
 
+          <p className="flex gap-1 text-nowrap text-white/55">
+            Developed by 
+            <Link
+            href={"https://thaboliz.co.za/services/technologies"}
+            className="text-blue-500 underline"
+          >
+            Thaboliz Technologies
+          </Link>
+          </p>
+
           
 
           <div className="flex flex-wrap items-center gap-4">
