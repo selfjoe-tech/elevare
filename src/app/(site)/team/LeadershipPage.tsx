@@ -85,16 +85,19 @@ export default function LeadershipPage() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-2 justify-items-center gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4">
+<div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
   {EXECUTIVES.map((e, idx) => (
     <Reveal key={e.slug} delay={idx * 60}>
       <Link
-        href={`/team/${e.slug}`}
-        className={[
-          "group flex w-full max-w-[220px] flex-col items-center text-center",
-          "rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
-        ].join(" ")}
-      >
+            href={`/team/${e.slug}`}
+            className={[
+              "group flex w-full flex-col items-center text-center",
+              "sm:w-[220px] sm:flex-none", // fixed card width on larger screens
+              "rounded-2xl p-4 sm:p-5",
+              "transition-transform duration-200 hover:-translate-y-1",
+              "focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+            ].join(" ")}
+          >
         <div className="transition-transform duration-200 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
           <AvatarPlaceholder src={e.image} name={e.name} />
         </div>

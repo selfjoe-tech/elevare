@@ -188,6 +188,7 @@ export default function AboutPage() {
     <>
       {/* HERO (Light blue -> white) */}
       <AboutHero />
+      
 
       {/* DARK BAND (Vision + Mission) */}
       <section className="relative bg-black py-24 sm:py-28 lg:py-32">

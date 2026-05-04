@@ -87,42 +87,42 @@ export const EXECUTIVES: Executive[] = [
       "Member: Institute of Internal Auditors",
     ],
   },
-  {
-    slug: "managing-partner",
-    name: "Managing Partner (Name pending)",
-    role: "Co-Founder and Managing Partner",
-    tagline: "Strategic direction, investment oversight, and investor relations.",
-    image: null,
-    location: "Africa",
-    bio: [
-      "The Managing Partner is a Co-Founder responsible for strategic direction, investment oversight, and investor relations.",
-      "With over 5 years of experience in investment management, private equity, and corporate finance, she has advised on and executed transactions across multiple sectors in Africa.",
-    ],
-    expertise: [
-      "Capital structuring",
-      "Private equity & alternative investments",
-      "Strategic leadership",
-      "Investor relations",
-    ],
-  },
-  {
-    slug: "chief-investment-officer",
-    name: "Chief Investment Officer (CIO) (Name pending)",
-    role: "Chief Investment Officer (CIO)",
-    tagline: "Portfolio construction, risk oversight, and investment strategy.",
-    image: null,
-    location: "Africa / Global",
-    bio: [
-      "The CIO leads investment strategy, portfolio construction, and risk oversight across private equity, hedge funds, and managed portfolios.",
-      "Previously held senior roles in banks, asset managers, or private equity firms, with a strong track record in delivering risk-adjusted returns.",
-    ],
-    expertise: [
-      "Portfolio management",
-      "Due diligence",
-      "Asset allocation",
-      "Risk management",
-    ],
-  },
+  // {
+  //   slug: "managing-partner",
+  //   name: "Managing Partner (Name pending)",
+  //   role: "Co-Founder and Managing Partner",
+  //   tagline: "Strategic direction, investment oversight, and investor relations.",
+  //   image: null,
+  //   location: "Africa",
+  //   bio: [
+  //     "The Managing Partner is a Co-Founder responsible for strategic direction, investment oversight, and investor relations.",
+  //     "With over 5 years of experience in investment management, private equity, and corporate finance, she has advised on and executed transactions across multiple sectors in Africa.",
+  //   ],
+  //   expertise: [
+  //     "Capital structuring",
+  //     "Private equity & alternative investments",
+  //     "Strategic leadership",
+  //     "Investor relations",
+  //   ],
+  // },
+  // {
+  //   slug: "chief-investment-officer",
+  //   name: "Chief Investment Officer (CIO) (Name pending)",
+  //   role: "Chief Investment Officer (CIO)",
+  //   tagline: "Portfolio construction, risk oversight, and investment strategy.",
+  //   image: null,
+  //   location: "Africa / Global",
+  //   bio: [
+  //     "The CIO leads investment strategy, portfolio construction, and risk oversight across private equity, hedge funds, and managed portfolios.",
+  //     "Previously held senior roles in banks, asset managers, or private equity firms, with a strong track record in delivering risk-adjusted returns.",
+  //   ],
+  //   expertise: [
+  //     "Portfolio management",
+  //     "Due diligence",
+  //     "Asset allocation",
+  //     "Risk management",
+  //   ],
+  // },
 ];
 
 export function getExecutive(slug: string) {
