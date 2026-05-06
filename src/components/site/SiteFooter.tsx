@@ -39,7 +39,7 @@ export default function SiteFooter() {
                     <div className="relative h-[55px] w-[170px] sm:w-[200px]">
                       <Image
                         src="/brand/logo-1.png"
-                        alt="Elevare Group Holdings"
+                        alt="Elevare Conglomerate"
                         fill
                         priority
                         className="object-contain object-left transition-opacity duration-200 group-hover:opacity-90"
@@ -125,9 +125,9 @@ export default function SiteFooter() {
             <div className="mt-4 space-y-2 text-sm text-white/75">
   <a
     className="block w-fit text-white/60 transition hover:text-white"
-    href="mailto:info@elevaregroupholdings.co.za"
+    href="mailto:info@elevareconglomerate.co.za"
   >
-    info@elevaregroupholdings.co.za
+    info@elevareconglomerate.co.za
   </a>
 
   {/* Phone slot */}
@@ -140,11 +140,11 @@ export default function SiteFooter() {
 
   <a
     className="block w-fit text-white/60 transition hover:text-white"
-    href="https://elevaregroupholdings.co.za"
+    href="https://elevareconglomerate.co.za"
     target="_blank"
     rel="noreferrer"
   >
-    elevaregroupholdings.co.za
+    elevareconglomerate.co.za
   </a>
 </div>
           </div>
@@ -152,7 +152,7 @@ export default function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <div>© {new Date().getFullYear()} Elevare Group Holdings (Pty) Ltd</div>
+          <div>© {new Date().getFullYear()} Elevare Conglomerate (Pty) Ltd</div>
 
           <p className="flex gap-1 text-nowrap text-white/55">
             Developed by 

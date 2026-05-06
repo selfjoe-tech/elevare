@@ -53,7 +53,7 @@ export default function SiteHeader() {
         <div className="relative h-[55px] w-[170px] sm:w-[200px]">
           <Image
             src="/brand/logo-1.png"
-            alt="Elevare Group Holdings"
+            alt="Elevare Conglomerate"
             fill
             priority
             className="object-contain object-left transition-opacity duration-200 group-hover:opacity-90"
@@ -67,7 +67,7 @@ export default function SiteHeader() {
       </div>
 
   {/* Optional fallback if you want (remove if not needed) */}
-  <span className="sr-only">Elevare Group Holdings</span>
+  <span className="sr-only">Elevare Conglomerate</span>
 </Link>
 
           <nav className="hidden items-center gap-8 md:flex">

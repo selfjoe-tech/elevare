@@ -1,5 +1,5 @@
 export const profileSite = {
-  name: "Elevare Group Holdings (Pty) Ltd",
+  name: "Elevare Conglomerate (Pty) Ltd",
   markets: "South Africa • Africa • Select global markets",
   tagline: "Alternative investment and financial advisory firm",
 };
@@ -7,14 +7,14 @@ export const profileSite = {
 
 
 export const profileContact = {
-  email: "info@elevaregroupholdings.co.za",
-  websiteLabel: "elevaregroupholdings.co.za",
-  websiteHref: "https://elevaregroupholdings.co.za",
+  email: "info@elevareconglomerate.co.za",
+  websiteLabel: "elevareconglomerate.co.za",
+  websiteHref: "https://elevareconglomerate.co.za",
 };
 
 export const profileOverview = {
   summary:
-    "Elevare Group Holdings (Pty) Ltd is a South Africa–based alternative investment and financial advisory firm providing sophisticated capital solutions to high-net-worth individuals, institutional investors, and growth-oriented businesses.",
+    "Elevare Conglomerate (Pty) Ltd is a South Africa–based alternative investment and financial advisory firm providing sophisticated capital solutions to high-net-worth individuals, institutional investors, and growth-oriented businesses.",
   extended:
     "We specialize in private equity investments, wealth management, hedge fund strategies, and funding facilitation, with a strong focus on value creation, risk management, and long-term capital growth within Africa and select global markets.",
   vision:
@@ -88,7 +88,7 @@ export const profileAdvantage = [
 ];
 
 export const profileRegulatory =
-  "Elevare Group Holdings (Pty) Ltd operates in accordance with South African financial regulations and is committed to obtaining and maintaining all required licenses, including registration with the Financial Sector Conduct Authority (FSCA) where applicable.";
+  "Elevare Conglomerate (Pty) Ltd operates in accordance with South African financial regulations and is committed to obtaining and maintaining all required licenses, including registration with the Financial Sector Conduct Authority (FSCA) where applicable.";
 
 export const profileValues = [
   "Integrity and accountability",

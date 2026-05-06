@@ -8,14 +8,14 @@ const pageUrl = `${siteUrl}/about`;
 export const metadata: Metadata = {
   title: "About Elevare Conglomerate | Alternative Investment & Financial Advisory in South Africa",
   description:
-    "Elevare Group Holdings is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management to HNWIs, institutions, and growth-oriented businesses.",
+    "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management to HNWIs, institutions, and growth-oriented businesses.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Elevare Conglomerate | Alternative Investment & Financial Advisory in South Africa",
     description:
-      "Elevare Group Holdings is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management to HNWIs, institutions, and growth-oriented businesses.",
+      "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management to HNWIs, institutions, and growth-oriented businesses.",
     url: "/about",
     siteName: "Elevare Conglomerate",
     locale: "en_ZA",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Elevare Conglomerate | Alternative Investment & Financial Advisory in South Africa",
     description:
-      "Elevare Group Holdings is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management.",
+      "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management.",
     images: ["/brand/icon.png"],
   },
 };
@@ -55,7 +55,7 @@ const webPageJsonLd = {
   name: "About Elevare Conglomerate",
   url: pageUrl,
   description:
-    "Elevare Group Holdings is a South Africa-based alternative investment and financial advisory firm serving high net worth individuals, institutional investors, and growth-oriented businesses.",
+    "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm serving high net worth individuals, institutional investors, and growth-oriented businesses.",
   inLanguage: "en-ZA",
   isPartOf: { "@type": "WebSite", url: siteUrl, name: "Elevare Conglomerate" },
   breadcrumb: breadcrumbJsonLd,
@@ -70,12 +70,12 @@ const webPageJsonLd = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Elevare Group Holdings",
+  name: "Elevare Conglomerate",
   alternateName: "Elevare Conglomerate",
   url: siteUrl,
   logo: `${siteUrl}/brand/icon.png`,
   description:
-    "Elevare Group Holdings is a South Africa-based alternative investment and financial advisory firm providing sophisticated capital solutions to high net worth individuals, institutional investors, and growth-oriented businesses.",
+    "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm providing sophisticated capital solutions to high net worth individuals, institutional investors, and growth-oriented businesses.",
   address: {
     "@type": "PostalAddress",
     addressCountry: "ZA",
@@ -108,7 +108,7 @@ const financialServiceJsonLd = {
   ],
   provider: {
     "@type": "Organization",
-    name: "Elevare Group Holdings",
+    name: "Elevare Conglomerate",
     url: siteUrl,
   },
   // Delivery process mapped from the WeWork section

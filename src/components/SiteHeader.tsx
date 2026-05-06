@@ -40,7 +40,7 @@ export default function SiteHeader() {
             </div>
             <div className="leading-none">
               <div className="text-sm tracking-[0.22em] text-white">ELEVARE</div>
-              <div className="text-[11px] tracking-[0.28em] text-white/55">GROUP HOLDINGS</div>
+              <div className="text-[11px] tracking-[0.28em] text-white/55">CONGLOMERATE</div>
             </div>
           </Link>
 

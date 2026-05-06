@@ -130,7 +130,7 @@ export default function CapabilityShowcase() {
               once
               revealFill
             >
-              Elevare Group Holdings provides sophisticated capital solutions with a strong focus on
+              Elevare Conglomerate provides sophisticated capital solutions with a strong focus on
               value creation, risk management, and long-term capital growth within Africa and select global markets.
             </LightSweepText>
 
