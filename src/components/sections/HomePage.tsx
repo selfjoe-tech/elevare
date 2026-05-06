@@ -244,9 +244,9 @@ export default function HomePage() {
       <Reveal>
         <div className="max-w-2xl">
           <h2 className="text-4xl leading-tight text-white sm:text-5xl">
-            Ready to shape the future of{" "}
+            Prepare{" "}
             <span className="italic text-white"> your </span>
-            capital?
+            business for capital, growth, and strategic transactions.
           </h2>
 
           <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">

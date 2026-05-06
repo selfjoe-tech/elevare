@@ -130,8 +130,10 @@ export default function CapabilityShowcase() {
               once
               revealFill
             >
-              Elevare Conglomerate provides sophisticated capital solutions with a strong focus on
-              value creation, risk management, and long-term capital growth within Africa and select global markets.
+              Elevare Conglomerate supports founders, SMEs, investors, and strategic 
+              partners with corporate finance advisory, investor-readiness support, 
+              transaction preparation, due diligence, and principal investment opportunities 
+              within appropriate regulatory boundaries.
             </LightSweepText>
 
           </Reveal>

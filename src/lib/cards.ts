@@ -18,11 +18,11 @@ export type CardData = {
 
 export const cards: Record<string, CardData> = {
   'gracious': {
-    name: 'Gracious Mutsindikwa',
+    name: 'Gracious Sakhile Mutsindikwa',
     title: 'CEO, Co-founder',
     company: 'Elevare Conglomerate',
-    phone: '+1 (312) 807-5532',
-    email: 'graciousm@elevareconglomerate.co.za',
+    phone: '+27 71 777 3991',
+    email: 'gracious@elevareconglomerate.co.za',
     cta: 'See how we can help',
     image: '/images/execs/gracious.png',
     logo: '/brand/card.png',
