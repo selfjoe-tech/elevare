@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import HomePage from "@/components/sections/HomePage";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elevareconglomerate.co.za";
 const pageUrl = siteUrl;
+
 
 export const metadata: Metadata = {
   title: "Elevare Conglomerate | Private Equity, Wealth Management & Risk in South Africa",

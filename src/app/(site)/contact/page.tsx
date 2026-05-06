@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ContactPage from "./ContactPage";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elevareconglomerate.co.za";
 const pageUrl = `${siteUrl}/contact`;
 
 export const metadata: Metadata = {
@@ -63,7 +63,7 @@ const contactPageJsonLd = {
     "@type": "Organization",
     name: "Elevare Group Holdings",
     url: siteUrl,
-    email: "info@elevare.co.za",
+    email: "info@elevareconglomerate.co.za",
     telephone: "+27000000000",
     address: {
       "@type": "PostalAddress",
@@ -74,7 +74,7 @@ const contactPageJsonLd = {
       {
         "@type": "ContactPoint",
         contactType: "customer support",
-        email: "info@elevare.co.za",
+        email: "info@elevareconglomerate.co.za",
         telephone: "+27000000000",
         availableLanguage: "English",
         areaServed: "ZA",

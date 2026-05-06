@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { EXECUTIVES, getExecutive } from "@/lib/leadership";
 import ExecutiveProfilePage from "./ExecutiveProfilePage";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elevareconglomerate.co.za";
 
 function isPendingProfile(name: string) {
   return /name pending/i.test(name);

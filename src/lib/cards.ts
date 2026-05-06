@@ -22,11 +22,11 @@ export const cards: Record<string, CardData> = {
     title: 'CEO, Co-founder',
     company: 'Elevare Conglomerate',
     phone: '+1 (312) 807-5532',
-    email: 'graciousm@elevare.co.za',
+    email: 'graciousm@elevareconglomerate.co.za',
     cta: 'See how we can help',
     image: '/images/execs/gracious.png',
     logo: '/brand/card.png',
-    website: "https://elevare-lac.vercel.app/",
+    website: "https://elevareconglomerate.co.za",
     linkedin: "https://bw.linkedin.com/in/gracious-sakhile-mutsindikwa-5a54a0261"
     
   },

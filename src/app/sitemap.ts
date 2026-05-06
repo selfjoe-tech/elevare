@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { EXECUTIVES } from "@/lib/leadership";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elevareconglomerate.co.za";
 
 function isPendingProfile(name: string) {
   return /name pending/i.test(name);

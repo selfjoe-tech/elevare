@@ -17,7 +17,7 @@ const sans = Inter({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elevareconglomerate.co.za";
 const siteName = "Elevare Conglomerate";
 const defaultTitle =
   "Elevare Conglomerate | Corporate Finance Advisory, Capital Raising & Investor Readiness, Transaction Advisory (M&A Support), Private Equity (Principal Investing), Due Diligence & Business Analysis, Training & Advisory Workshops";

@@ -3,7 +3,7 @@ import Script from "next/script";
 import LeadershipPage from "./LeadershipPage";
 import { EXECUTIVES } from "@/lib/leadership";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elevareconglomerate.co.za";
 const routePath = "/team";
 const pageUrl = `${siteUrl}${routePath}`;
 

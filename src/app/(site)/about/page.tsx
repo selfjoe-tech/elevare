@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import AboutPage from "./AboutPage";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.elevare.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://elevareconglomerate.co.za";
 const pageUrl = `${siteUrl}/about`;
 
 export const metadata: Metadata = {
