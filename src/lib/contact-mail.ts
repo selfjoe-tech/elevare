@@ -29,7 +29,7 @@ export async function sendContactEmail(input: ContactEmailInput) {
   });
 
   const smtpFrom = process.env.SMTP_FROM ?? requiredEnv("SMTP_USER");
-  const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "info@thaboliz.co.za";
+  const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "info@elevareconglomerate.co.za";
 
   const internalText = [
     `New website enquiry from ${input.name}`,
@@ -44,7 +44,7 @@ export async function sendContactEmail(input: ContactEmailInput) {
   ].join("\n");
 
   await transporter.sendMail({
-    from: `"Thaboliz Website" <${smtpFrom}>`,
+    from: `"Elevare Conglomerate Website" <${smtpFrom}>`,
     to: contactToEmail,
     replyTo: `"${input.name}" <${input.email}>`,
     subject: `New website enquiry from ${input.name}`,
@@ -52,13 +52,13 @@ export async function sendContactEmail(input: ContactEmailInput) {
   });
 
   await transporter.sendMail({
-    from: `"Thaboliz" <${smtpFrom}>`,
+    from: `"Elevare Conglomerate" <${smtpFrom}>`,
     to: input.email,
     subject: "We received your enquiry",
     text: [
       `Hello ${input.name},`,
       "",
-      "Thank you for contacting Thaboliz.",
+      "Thank you for contacting Elevare Conglomerate.",
       "We have received your enquiry and a member of our team will get back to you as soon as possible.",
       "",
       "Your submitted details:",
@@ -71,7 +71,7 @@ export async function sendContactEmail(input: ContactEmailInput) {
       input.message,
       "",
       "Regards,",
-      "Thaboliz",
+      "Elevare Conglomerate",
     ].join("\n"),
   });
 }
