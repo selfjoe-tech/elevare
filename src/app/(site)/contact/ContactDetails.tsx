@@ -21,7 +21,7 @@ export default function ContactDetails() {
     <div className="relative aspect-[16/10] w-full">
       <Image
         src="/images/pic-9.jpg"
-        alt="Thaboliz team discussing a project"
+        alt="Elevare team discussing a project"
         fill
         className="object-cover"
         sizes="(max-width: 1024px) 100vw, 40vw"
@@ -47,7 +47,7 @@ export default function ContactDetails() {
                       For proposals, partnerships, and general enquiries.
                     </p>
                     <Link
-                      href="mailto:info@thaboliz.co.za"
+                      href="mailto:info@elevareconglomerate.co.za"
                       className="mt-4 inline-block text-base text-white underline underline-offset-4 transition hover:text-white/80"
                     >
                       info@elevareconglomerate.co.za
