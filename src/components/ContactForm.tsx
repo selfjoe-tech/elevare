@@ -33,8 +33,8 @@ export function ContactForm() {
           <span className="font-semibold text-slate-700">Service</span>
           <select className="h-11 rounded-2xl border border-slate-200 px-4 outline-none focus:ring-2 focus:ring-blue-200">
             <option>Private Equity</option>
-            <option>Wealth Management</option>
-            <option>Funding Facilitation</option>
+            <option>Investor Readiness</option>
+            <option>Business valuation support</option>
             <option>General</option>
           </select>
         </label>

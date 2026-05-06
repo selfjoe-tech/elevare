@@ -8,14 +8,14 @@ const pageUrl = `${siteUrl}/contact`;
 export const metadata: Metadata = {
   title: "Contact Elevare Conglomerate | Private Equity & Financial Advisory Enquiries",
   description:
-    "Contact Elevare Conglomerate for private equity, wealth management, funding facilitation, and risk management enquiries in South Africa. Submit a mandate brief and receive a structured response.",
+    "Contact Elevare Conglomerate for private equity, Investor Readiness, Business valuation support, and risk management enquiries in South Africa. Submit a mandate brief and receive a structured response.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Elevare Conglomerate | Private Equity & Financial Advisory Enquiries",
     description:
-      "Contact Elevare Conglomerate for private equity, wealth management, funding facilitation, and risk management enquiries in South Africa.",
+      "Contact Elevare Conglomerate for private equity, Investor Readiness, Business valuation support, and risk management enquiries in South Africa.",
     url: "/contact",
     siteName: "Elevare Conglomerate",
     locale: "en_ZA",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Elevare Conglomerate | Private Equity & Financial Advisory Enquiries",
     description:
-      "Contact Elevare Conglomerate for private equity, wealth management, funding facilitation, and risk management enquiries in South Africa.",
+      "Contact Elevare Conglomerate for private equity, Investor Readiness, Business valuation support, and risk management enquiries in South Africa.",
     images: ["/brand/icon.png"],
   },
 };
@@ -55,7 +55,7 @@ const contactPageJsonLd = {
   name: "Contact Elevare Conglomerate",
   url: pageUrl,
   description:
-    "Submit a mandate enquiry to Elevare Conglomerate for private equity, wealth management, funding facilitation, and risk management services in South Africa.",
+    "Submit a mandate enquiry to Elevare Conglomerate for private equity, Investor Readiness, Business valuation support, and risk management services in South Africa.",
   inLanguage: "en-ZA",
   isPartOf: { "@type": "WebSite", url: siteUrl, name: "Elevare Conglomerate" },
   breadcrumb: breadcrumbJsonLd,

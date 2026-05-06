@@ -192,7 +192,7 @@ export default function CapabilityShowcase() {
                 
 
                 <h3 className="mt-4 text-3xl leading-tight text-[#0b1020]">
-                  We structure and manage capital efficiently.
+                  We structure and Principal investing using own capital efficiently.
                 </h3>
 
                 <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#0b1020]/65">
@@ -236,8 +236,7 @@ export default function CapabilityShowcase() {
                   <span className="italic text-[#0b1020]/90">investment operations</span>
                 </div>
                 <p className="mt-3 text-sm text-[#0b1020]/65">
-                  Our vision is sustainable wealth creation with innovative financial solutions
-                  and superior risk-adjusted returns.
+                  Our vision is sustainable wealth creation with innovative financial solutions.
                 </p>
                 
               </div>

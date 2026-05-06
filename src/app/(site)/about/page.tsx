@@ -8,14 +8,14 @@ const pageUrl = `${siteUrl}/about`;
 export const metadata: Metadata = {
   title: "About Elevare Conglomerate | Alternative Investment & Financial Advisory in South Africa",
   description:
-    "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management to HNWIs, institutions, and growth-oriented businesses.",
+    "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, investor readiness, Business valuation support, and risk management to HNWIs, institutions, and growth-oriented businesses.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Elevare Conglomerate | Alternative Investment & Financial Advisory in South Africa",
     description:
-      "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management to HNWIs, institutions, and growth-oriented businesses.",
+      "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, investor readiness, Business valuation support, and risk management to HNWIs, institutions, and growth-oriented businesses.",
     url: "/about",
     siteName: "Elevare Conglomerate",
     locale: "en_ZA",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Elevare Conglomerate | Alternative Investment & Financial Advisory in South Africa",
     description:
-      "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, wealth management, funding facilitation, and risk management.",
+      "Elevare Conglomerate is a South Africa-based alternative investment and financial advisory firm delivering private equity, investor readiness, Business valuation support, and risk management.",
     images: ["/brand/icon.png"],
   },
 };
@@ -82,8 +82,8 @@ const organizationJsonLd = {
   },
   knowsAbout: [
     "Private Equity",
-    "Wealth Management",
-    "Funding Facilitation",
+    "Investor Readiness",
+    "Business valuation support",
     "Risk Management",
     "Alternative Investments",
     "Financial Advisory",
@@ -101,7 +101,7 @@ const financialServiceJsonLd = {
   name: "Elevare Conglomerate",
   url: siteUrl,
   description:
-    "Alternative investment and financial advisory services including private equity, wealth management, funding facilitation, and risk management across South Africa.",
+    "Alternative investment and financial advisory services including private equity, Investor Readiness, Business valuation support, and risk management across South Africa.",
   areaServed: [
     { "@type": "Country", name: "South Africa" },
     { "@type": "Place", name: "Africa" },

@@ -46,8 +46,8 @@ export const metadata: Metadata = {
 
   keywords: [
     "private equity South Africa",
-    "wealth management South Africa",
-    "funding facilitation South Africa",
+    "Investor Readiness South Africa",
+    "Business valuation support South Africa",
     "risk management South Africa",
     "Elevare Conglomerate",
     "investment firm South Africa",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
         url: "/brand/icon.png",
         width: 1200,
         height: 630,
-        alt: "Elevare Conglomerate — Private Equity, Wealth Management & Risk in South Africa",
+        alt: "Elevare Conglomerate — Private Equity, Investor Readiness & Risk in South Africa",
         type: "image/png",
       },
     ],
@@ -184,7 +184,7 @@ const financialServiceSchema = {
           "@type": "Service",
           name: "Capital Raising & Investor Readiness",
           description:
-            "Investment readiness assessments, Pitch deck preparation, Financial packaging and data rooms, Investor introductions (non-advisory)",
+            "Investment readiness assessments, Pitch deck preparation, Financial packaging and data rooms, Founder education (non-advisory)",
         },
       },
       {

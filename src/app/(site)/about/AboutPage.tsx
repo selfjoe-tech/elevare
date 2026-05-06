@@ -330,11 +330,11 @@ export default function AboutPage() {
           </h3>
 
           <h3 className="mt-4 text-xl leading-tight text-white sm:text-xl">
-            Structure and manage capital efficiently, with governance.
+            Structure and Principal investing using own capital efficiently, with governance.
           </h3>
 
           <p className="mt-4 text-base leading-relaxed text-white/75">
-            To structure and manage capital efficiently by connecting investors with high quality opportunities
+            To structure and Principal investing using own capital efficiently by connecting investors with high quality opportunities
             while supporting businesses through strategic funding, governance, and financial expertise.
           </p>
 

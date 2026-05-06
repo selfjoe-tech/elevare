@@ -10,14 +10,14 @@ const cases = [
     tag: "Investment",
   },
   {
-    title: "Wealth Management",
+    title: "Investor Readiness",
     subtitle: "Preservation + long-term growth",
     body: "Personalized, risk-aware portfolio construction designed for durable outcomes across market cycles.",
     href: "/services/wealth-management",
     tag: "Advisory",
   },
   {
-    title: "Funding Facilitation",
+    title: "Business valuation support",
     subtitle: "Readiness → introductions → execution",
     body: "Capital structuring support for SMEs and corporates, aligning funding networks with deal requirements.",
     href: "/services/funding-facilitation",

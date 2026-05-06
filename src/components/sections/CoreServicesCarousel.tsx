@@ -55,7 +55,7 @@ const SLIDES: Slide[] = [
           "Investment readiness assessments",
           "Pitch deck preparation",
           "Financial packaging and data rooms",
-          "Investor introductions (non-advisory)",
+          "Founder education (non-advisory)",
         ],
       },
       {

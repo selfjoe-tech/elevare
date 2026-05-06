@@ -63,7 +63,7 @@ export const EXECUTIVES: Executive[] = [
     responsibilities: [
       "Financial Leadership & Strategy",
       "Fund & Investment Financial Management",
-      "Wealth Management Oversight",
+      "Investor Readiness Oversight",
       "Project & Structured Finance",
       "Financial Reporting & Controls",
       "Budgeting, Forecasting & Cash Flow Management",

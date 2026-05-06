@@ -16,11 +16,11 @@ export const profileOverview = {
   summary:
     "Elevare Conglomerate (Pty) Ltd is a South Africa–based alternative investment and financial advisory firm providing sophisticated capital solutions to high-net-worth individuals, institutional investors, and growth-oriented businesses.",
   extended:
-    "We specialize in private equity investments, wealth management, hedge fund strategies, and funding facilitation, with a strong focus on value creation, risk management, and long-term capital growth within Africa and select global markets.",
+    "We specialize in private equity investments, Investor Readiness, Principal investing using own capital, and Business valuation support, with a strong focus on value creation, risk management, and long-term capital growth within Africa and select global markets.",
   vision:
-    "To be a leading African investment firm recognized for delivering sustainable wealth creation, innovative financial solutions, and superior risk-adjusted returns.",
+    "To be a leading African investment firm recognized for delivering sustainable wealth creation, innovative financial solutions",
   mission:
-    "To structure and manage capital efficiently by connecting investors with high-quality opportunities while supporting businesses through strategic funding, governance, and financial expertise.",
+    "To structure and Principal investing using own capital efficiently by connecting investors with high-quality opportunities while supporting businesses through strategic funding, governance, and financial expertise.",
 };
 
 export const profileServices = [
@@ -40,7 +40,7 @@ export const profileServices = [
   },
   {
     key: "wealth-management",
-    title: "Wealth Management",
+    title: "Investor Readiness",
     subtitle: "Preservation and long-term growth",
     intro:
       "Personalized portfolio construction designed for preservation and long-term growth, informed by risk profiling and disciplined allocation.",
@@ -54,7 +54,7 @@ export const profileServices = [
   },
   {
     key: "funding-facilitation",
-    title: "Funding Facilitation",
+    title: "Business valuation support",
     subtitle: "Readiness, structuring, and introductions",
     intro:
       "Capital raising and structuring support for SMEs and corporates, from readiness to introductions and execution.",
@@ -62,7 +62,7 @@ export const profileServices = [
     bullets: [
       "Capital raising for SMEs and corporates",
       "Structuring debt, equity, and hybrid instruments",
-      "Investor introductions and deal structuring",
+      "Founder education and deal structuring",
       "Financial modelling and investment readiness support",
     ],
   },
@@ -119,7 +119,7 @@ export const profileLeadership = [
     responsibilities: [
       "Financial leadership and strategy",
       "Fund and investment financial management",
-      "Wealth management oversight",
+      "Investor Readiness oversight",
       "Project and structured finance",
       "Financial reporting, controls, budgeting, forecasting, and cash-flow management",
       "Risk management, compliance, and stakeholder relations",
@@ -143,7 +143,7 @@ export const profileLeadership = [
     name: "Chief Investment Officer (TBC)",
     role: "Chief Investment Officer (CIO)",
     bio:
-      "The Chief Investment Officer leads investment strategy, portfolio construction, and risk oversight across private equity, hedge fund strategies, and managed portfolios. The role is typically filled by a senior professional with experience in banking, asset management, or private equity and a demonstrated track record of delivering strong risk-adjusted returns.",
+      "The Chief Investment Officer leads investment strategy, portfolio construction, and risk oversight across private equity, Principal investing using own capital, and managed portfolios. The role is typically filled by a senior professional with experience in banking, Corporate finance support, or private equity and a demonstrated track record of delivering strong risk-adjusted returns.",
     responsibilities: ["Portfolio management", "Due diligence", "Asset allocation", "Risk management"],
     isTBC: true,
   },

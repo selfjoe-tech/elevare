@@ -10,7 +10,7 @@ const pageUrl = `${siteUrl}${routePath}`;
 export const metadata: Metadata = {
   title: "Leadership Team | Strategy, Investment Oversight & Governance | Elevare Conglomerate",
   description:
-    "Meet the Elevare Conglomerate leadership team responsible for strategy, investment oversight, governance alignment, and client execution across private equity, wealth management, and financial advisory.",
+    "Meet the Elevare Conglomerate leadership team responsible for strategy, investment oversight, governance alignment, and client execution across private equity, Investor Readiness, and financial advisory.",
   alternates: {
     canonical: routePath,
   },

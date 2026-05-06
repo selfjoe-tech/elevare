@@ -47,7 +47,7 @@ export default function AdvantagePage() {
               <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-950 to-slate-950 p-8 sm:p-10 text-white">
                 <div className="text-2xl font-semibold">Let’s align on your objective</div>
                 <p className="mt-3 max-w-2xl text-sm text-white/75">
-                  We’ll route your enquiry to the appropriate service team: private equity, wealth management, or funding facilitation.
+                  We’ll route your enquiry to the appropriate service team: private equity, Investor Readiness, or Business valuation support.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <ButtonLink href="/contact" variant="secondary" className="bg-white/95" withArrow>

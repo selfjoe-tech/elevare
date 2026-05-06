@@ -7,18 +7,18 @@ const pageUrl = siteUrl;
 
 
 export const metadata: Metadata = {
-  title: "Elevare Conglomerate | Private Equity, Wealth Management & Risk in South Africa",
+  title: "Elevare Conglomerate | Private Equity, Investor Readiness & Risk in South Africa",
   description:
-    "Elevare Conglomerate delivers private equity, wealth management, funding facilitation, and risk management services in South Africa. Transparent, disciplined, and client-first.",
+    "Elevare Conglomerate delivers private equity, investor readiness, Business valuation support, and risk management services in South Africa. Transparent, disciplined, and client-first.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     url: "/",
     siteName: "Elevare Conglomerate",
-    title: "Elevare Conglomerate | Private Equity, Wealth Management & Risk in South Africa",
+    title: "Elevare Conglomerate | Private Equity, Investor Readiness & Risk in South Africa",
     description:
-      "Elevare Conglomerate delivers private equity, wealth management, funding facilitation, and risk management services in South Africa. Transparent, disciplined, and client-first.",
+      "Elevare Conglomerate delivers private equity, investor readiness, Business valuation support, and risk management services in South Africa. Transparent, disciplined, and client-first.",
     locale: "en_ZA",
     type: "website",
     images: [
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
         url: "/brand/icon.png",
         width: 1200,
         height: 630,
-        alt: "Elevare Conglomerate — Private Equity, Wealth Management & Risk in South Africa",
+        alt: "Elevare Conglomerate — Private Equity, Investor Readiness & Risk in South Africa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elevare Conglomerate | Private Equity, Wealth Management & Risk in South Africa",
+    title: "Elevare Conglomerate | Private Equity, Investor Readiness & Risk in South Africa",
     description:
-      "Elevare Conglomerate delivers private equity, wealth management, funding facilitation, and risk management services in South Africa.",
+      "Elevare Conglomerate delivers private equity, Investor Readiness, Business valuation support, and risk management services in South Africa.",
     images: ["/brand/icon.png"],
   },
 };
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
 const webPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Elevare Conglomerate | Private Equity, Wealth Management & Risk in South Africa",
+  name: "Elevare Conglomerate | Private Equity, Investor Readiness & Risk in South Africa",
   url: pageUrl,
   description:
-    "Elevare Conglomerate delivers private equity, wealth management, funding facilitation, and risk management services in South Africa.",
+    "Elevare Conglomerate delivers private equity, Investor Readiness, Business valuation support, and risk management services in South Africa.",
   inLanguage: "en-ZA",
   isPartOf: { "@type": "WebSite", url: siteUrl, name: "Elevare Conglomerate" },
   breadcrumb: {
@@ -65,7 +65,7 @@ const organizationJsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/brand/icon.png`,
   description:
-    "Elevare Conglomerate delivers private equity, wealth management, funding facilitation, and risk management services in South Africa.",
+    "Elevare Conglomerate delivers private equity, Investor Readiness, Business valuation support, and risk management services in South Africa.",
   address: {
     "@type": "PostalAddress",
     addressCountry: "ZA",
@@ -100,9 +100,9 @@ const serviceListJsonLd = {
       position: 2,
       item: {
         "@type": "Service",
-        name: "Funding Facilitation",
+        name: "Business valuation support",
         description:
-          "Debt, equity, and hybrid instruments with investor introductions and deal structuring.",
+          "Debt, equity, and hybrid instruments with Founder education and deal structuring.",
         url: `${siteUrl}/about#services`,
         provider: { "@type": "Organization", name: "Elevare Conglomerate" },
         areaServed: { "@type": "Country", name: "South Africa" },
@@ -126,9 +126,9 @@ const serviceListJsonLd = {
       position: 4,
       item: {
         "@type": "Service",
-        name: "Wealth Management",
+        name: "Investor Readiness",
         description:
-          "Comprehensive wealth management and financial planning services for individuals and institutions.",
+          "Comprehensive investor readiness and financial planning services for individuals and institutions.",
         url: `${siteUrl}/about#services`,
         provider: { "@type": "Organization", name: "Elevare Conglomerate" },
         areaServed: { "@type": "Country", name: "South Africa" },
