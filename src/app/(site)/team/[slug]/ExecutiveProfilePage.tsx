@@ -75,9 +75,8 @@ function ExecAccordionRow({
             {items.map((t) => (
               <div
                 key={t}
-                className="rounded-2xl bg-white/5 px-5 py-4 text-sm leading-relaxed text-white/75 backdrop-blur-md"
+                className=" bg-white/5 font-bold px-5 py-4 text-lg leading-relaxed text-white/90"
               >
-                <span className="mr-2 inline-block h-2 w-2 translate-y-[-1px] rounded-full bg-[#3b82f6]" />
                 {t}
               </div>
             ))}
@@ -180,13 +179,13 @@ export default function ExecutiveProfilePage({
 
             <div className="lg:col-span-8">
               <Reveal delay={160} from="right">
-                <h1 className="mt-5 text-4xl leading-tight text-white sm:text-6xl">
+                <h1 className="mt-5 text-7xl leading-tight text-white sm:text-9xl">
                   {exec.name}
                 </h1>
               </Reveal>
 
               <Reveal delay={210} from="right">
-                <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-base text-white/75">
+                <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-lg text-white/90">
                   <span>{exec.role}</span>
                   
                 </div>
@@ -222,10 +221,9 @@ export default function ExecutiveProfilePage({
             <SectionHeader
               title={
                 <>
-                  Background and <span className="italic text-[#0b1020]/90">career path</span>
+                  Background and career path
                 </>
               }
-              subtitle="A concise summary of experience, progression, and mandate."
             />
           </Reveal>
 
@@ -233,7 +231,7 @@ export default function ExecutiveProfilePage({
             <div className="lg:col-span-8">
               <Reveal>
                 <div className="rounded-[2rem] bg-white p-10 shadow-[0_1px_0_rgba(16,24,40,0.06),0_18px_50px_rgba(16,24,40,0.10)]">
-                  <div className="space-y-5 text-base leading-relaxed text-black/90">
+                  <div className="space-y-5 text-xl leading-relaxed text-black/90">
                     {exec.bio.map((p) => (
                       <p key={p}>{p}</p>
                     ))}
@@ -288,10 +286,10 @@ export default function ExecutiveProfilePage({
           <Reveal>
             <div className="mx-auto max-w-4xl rounded-[2rem] bg-white/5 p-10 text-center backdrop-blur-md">
               <h2 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">
-                Request an executive <span className="italic text-white/90">consultation</span>.
+                Request a consultation
               </h2>
 
-              <p className="mx-auto mt-5 max-w-2xl text-white/70">
+              <p className="mx-auto text-lg mt-5 max-w-2xl text-white/90">
                 Share your objective and we’ll respond with a structured approach and clear next steps.
               </p>
 

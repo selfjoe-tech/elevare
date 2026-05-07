@@ -57,20 +57,15 @@ export default function ContactPage() {
         <Container>
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mt-6 text-3xl text-[#0b1020] sm:text-4xl">
+              <h2 className="mt-6 font-bold text-5xl text-[#0b1020] sm:text-6xl">
                 What happens next?
               </h2>
 
 
-              <h2 className="mt-6 text-xl text-[#0b1020] sm:text-xl">
-                A disciplined process from{" "}
-                <span className="italic text-[#0b1020]/90">discovery</span> to execution.
-              </h2>
+              
 
 
-              <p className="mt-4 text-[#0b1020]/70">
-                We document assumptions, map risk early, and keep reporting action-oriented.
-              </p>
+              
             </div>
           </Reveal>
 

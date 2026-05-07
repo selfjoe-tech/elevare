@@ -14,22 +14,22 @@ const PHILOSOPHY_CARDS: PhilosophyCard[] = [
   {
     kicker: "PERSPECTIVE",
     title: "Rigorous due diligence",
-    image: "/stock/bus-20.jpg",
+    image: "/3d/pic-4.jpg",
   },
   {
     kicker: "RESEARCH REPORT",
     title: "Governance-first decision trails",
-    image: "/stock/bus-21.jpg",
+    image: "/3d/pic-1.jpg",
   },
   {
     kicker: "RESEARCH REPORT",
     title: "Responsible investment practice",
-    image: "/stock/bus-23.jpg",
+    image: "/3d/pic-2.jpg",
   },
   {
     kicker: "RESEARCH REPORT",
     title: "Hands-on value creation",
-    image: "/stock/bus-27.jpg",
+    image: "/3d/pic-3.jpg",
   },
 ];
 
@@ -112,14 +112,11 @@ export function InvestmentPhilosophySection() {
           <div className="max-w-3xl">
             <div className="h-[3px] w-10 rounded-full bg-[#3b82f6]" />
 
-            <h2 className="font-bold mt-4 text-5xl leading-tight text-white sm:text-5xl">
+            <h2 className="font-bold mt-4 text-5xl leading-tight text-white sm:text-7xl">
                 Investment Philosophy
             </h2>
 
-            <h2 className="mt-4 text-xl leading-tight text-white sm:text-xl">
-              Disciplined allocation,{" "}
-              <span className="italic text-white/90">strong governance</span>, and hands-on engagement.
-            </h2>
+            
 
             
 

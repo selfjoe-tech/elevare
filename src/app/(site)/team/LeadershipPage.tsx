@@ -3,7 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 import Link from "next/link";
 import { EXECUTIVES } from "@/lib/leadership";
 import { UserRound, ArrowUpRight } from "lucide-react";
-import { ButtonLink } from "@/components/ui/button";
+import { Button, ButtonLink } from "@/components/ui/button";
 import Image from "next/image";
 
 
@@ -40,40 +40,12 @@ export default function LeadershipPage() {
     <>
       {/* HERO (centered, no image) */}
 
-<section className="relative isolate overflow-hidden bg-black min-h-[520px] flex items-center ">  {/* Background image */}
-  <div className="absolute inset-0 -z-20">
-    <Image
-      src="/images/pic-8.jpg" // replace with your image path
-      alt="Executive leadership background"
-      fill
-      priority
-      className="object-cover object-center"
-      sizes="100vw"
-    />
-  </div>
 
-  {/* Dark overlay for readability */}
-
-  <Container className="py-20 sm:py-24">
-    <div className="mx-auto max-w-3xl text-center">
-      <Reveal delay={90}>
-        <h1 className="mt-6 text-4xl leading-tight text-white sm:text-5xl">
-          The Team of Leaders
-        </h1>
-      </Reveal>
-
-      <Reveal delay={160}>
-        <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
-          Meet the leadership team responsible for strategy, investment oversight,
-          governance alignment, and client execution.
-        </p>
-      </Reveal>
-    </div>
-  </Container>
-</section>
 
       {/* TEAM (simple row like your reference, black background) */}
-      <section className="bg-black">
+      <section className="bg-black relative isolate overflow-hidden bg-black min-h-[520px] flex items-center ">
+
+        
         <Container className="py-20 sm:py-24">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
@@ -102,18 +74,28 @@ export default function LeadershipPage() {
           <AvatarPlaceholder src={e.image} name={e.name} />
         </div>
 
-        <div className="mt-4 flex w-full items-start justify-between gap-3">
+        <div className="mt-4 flex w-full items-start justify-between gap-1">
           <div className="flex min-h-[44px] flex-1 flex-col justify-center">
-            <div className="text-sm font-semibold text-white">{e.name}</div>
-            <div className="mt-1 text-xs text-white/60">{e.role}</div>
+            <div className="text-sm font-bold text-white">{e.name}</div>
+            <div className="mt-1 text-xs text-white/90">{e.role}</div>
           </div>
 
+         
+        </div>
+
+        <Button
+          className="cursor-pointer mt-4 inline-flex h-12 items-center justify-center bg-gold px-6 font-sans text-sm font-semibold text-black"
+          >
+          View Profile  
           <ArrowUpRight
             className="mt-0.5 h-7 w-7 shrink-0 text-white/80"
             strokeWidth={3}
             aria-hidden="true"
           />
-        </div>
+        </Button>
+
+
+
       </Link>
     </Reveal>
   ))}

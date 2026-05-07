@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { BriefcaseBusiness, HandCoins, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import CapabilityShowcase from "@/components/sections/CapabilityShowcase";
+import CoreServicesCarousel from "./CoreServicesCarousel";
 
 
 function Divider() {
@@ -75,7 +76,9 @@ export default function HomePage() {
 
       {/* “Numbers speak” section (video motif) */}
      
-      <CapabilityShowcase />
+      {/* <CapabilityShowcase /> */}
+
+      <CoreServicesCarousel />
 
 
       {/* Gradient interstitial (like the video’s big color panel, but gold/ink) */}
@@ -249,9 +252,7 @@ export default function HomePage() {
             business for capital, growth, and strategic transactions.
           </h2>
 
-          <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
-            Structured capital decisions, clear reporting, and disciplined governance built for long-term outcomes.
-          </p>
+          
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <ButtonLink href="/contact" variant="contact">

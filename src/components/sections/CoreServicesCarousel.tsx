@@ -198,7 +198,7 @@ export default function CoreServicesCarousel({
       <Container className="relative w-full">
         <Reveal>
           <div className="text-center">
-            <h2 className="font-bold text-5xl leading-tight text-white sm:text-5xl">{title}</h2>
+            <h2 className="font-bold text-7xl leading-tight text-white sm:text-8xl">{title}</h2>
           </div>
         </Reveal>
 

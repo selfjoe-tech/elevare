@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
-import Reveal from "@/components/ui/Reveal";
+import Reveal, { AnotherReveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/button";
 import {
   BadgeCheck,
@@ -197,22 +197,12 @@ export default function AboutPage() {
 
   <Container className="relative">
     {/* Header */}
-    <div className="mx-auto max-w-3xl text-center">
-      <Reveal>
-        <h2 className="font-bold text-5xl leading-tight text-white sm:text-5xl">
-          Vision & <span className="italic text-white/90">Mission</span>
-        </h2>
-      </Reveal>
-
-      
-    </div>
-
+    
     {/* 3-feature panel (clean + consistent, no “funny” borders) */}
-    <div className="mt-14">
+    {/* <div className="mt-14">
       <Reveal>
         <div className="mx-auto max-w-6xl overflow-hidden">
           <div className="grid md:grid-cols-3 divide-y divide-white/10 md:divide-y-0 md:divide-x">
-            {/* Item 1 */}
             <div className="p-8 sm:p-10 text-center">
               <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/5">
                 <LineChart className="h-6 w-6 text-white" />
@@ -223,7 +213,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Item 2 */}
             <div className="p-8 sm:p-10 text-center">
               <div className="mx-auto grid h-12 w-12 place-items-center border border-white/15 bg-white/5">
                 <ShieldCheck className="h-6 w-6 text-white" />
@@ -234,7 +223,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Item 3 */}
             <div className="p-8 sm:p-10 text-center">
               <div className="mx-auto grid h-12 w-12 place-items-center border border-white/15 bg-white/5">
                 <Network className="h-6 w-6 text-white" />
@@ -247,7 +235,7 @@ export default function AboutPage() {
           </div>
         </div>
       </Reveal>
-    </div>
+    </div> */}
 
     {/* Vision (text LEFT, image RIGHT) */}
     <div className="mt-20 grid sm:h-[100vh] items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -403,73 +391,78 @@ export function ComplianceSection() {
 }
 
 export function ValuesSection() {
-  return (
-    <section className="bg-black py-20">
-      <Container>
-        <div className="mx-auto max-w-4xl text-center">
-          <Reveal>
-            
-            <h3 className="font-bold mt-4 text-3xl leading-tight text-white sm:text-4xl">
-                            Our values
-            </h3>
-            
-          </Reveal>
-        </div>
+  const values = [
+    {
+      icon: <Landmark className="h-6 w-6 text-white" />,
+      title: "Integrity",
+      desc: "Accountability, confidentiality, and clear decision trails.",
+    },
+    {
+      icon: <BadgeCheck className="h-6 w-6 text-white" />,
+      title: "Excellence",
+      desc: "High standards in analysis, structuring, and reporting cadence.",
+    },
+    {
+      icon: <HeartHandshake className="h-6 w-6 text-white" />,
+      title: "Client-first",
+      desc: "Discretion, clarity, and consistent follow-through on commitments.",
+    },
+    {
+      icon: <Sparkles className="h-6 w-6 text-white" />,
+      title: "Innovation",
+      desc: "Practical solutions, not complexity for its own sake.",
+    },
+    {
+      icon: <Scale className="h-6 w-6 text-white" />,
+      title: "Responsibility",
+      desc: "Governance-led thinking and risk-aware capital stewardship.",
+    },
+  ];
 
-        {/* Feature-divider UI wrapper */}
-        <div className="mx-auto mt-14 w-full max-w-6xl overflow-hidden">
-          <div
-  className={[
-    "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 text-center",
-    // desktop-only vertical dividers (no left on first, no right on last)
-    "lg:[&>*]:border-r lg:[&>*]:border-white/10 lg:[&>*:last-child]:border-r-0",
-  ].join(" ")}
->
-            {[
-              {
-                icon: <Landmark className="h-6 w-6 text-white" />,
-                title: "Integrity",
-                desc: "Accountability, confidentiality, and clear decision trails.",
-              },
-              {
-                icon: <BadgeCheck className="h-6 w-6 text-white" />,
-                title: "Excellence",
-                desc: "High standards in analysis, structuring, and reporting cadence.",
-              },
-              {
-                icon: <HeartHandshake className="h-6 w-6 text-white" />,
-                title: "Client-first",
-                desc: "Discretion, clarity, and consistent follow-through on commitments.",
-              },
-              {
-                icon: <Sparkles className="h-6 w-6 text-white" />,
-                title: "Innovation",
-                desc: "Practical solutions, not complexity for its own sake.",
-              },
-              {
-                icon: <Scale className="h-6 w-6 text-white" />,
-                title: "Responsibility",
-                desc: "Governance-led thinking and risk-aware capital stewardship.",
-              },
-            ].map((x) => (
-              <div key={x.title} className="flex flex-col items-center px-7 py-10">
-                <Reveal>
-                  <div className="flex flex-col items-center">
-                    <div className="grid h-12 w-12 place-items-center border border-white/15 bg-white/5">
-                    {x.icon}
+  return (
+    <section
+      id="values"
+      className=" bg-black py-16 sm:py-20 lg:py-24"
+    >
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.15fr)] lg:gap-24">
+          {/* Left side */} 
+                     <div className="lg:sticky lg:top-24 lg:self-start">
+
+          <AnotherReveal>
+              <h2 className="max-w-[8ch] text-5xl font-semibold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[4.75rem]">
+                Our values
+                
+              </h2>
+
+              
+          </AnotherReveal>            </div>
+
+
+          {/* Right side */}
+          <div className="space-y-5 sm:space-y-6 lg:space-y-7">
+            {values.map((value, index) => (
+              <AnotherReveal key={value.title} delayMs={index * 70}>
+                <article className="border-b border-white/10 pb-5 sm:pb-6 lg:pb-7">
+                  <div className="flex items-start gap-4">
+                    
+
+                    <div className="min-w-0">
+                      <h3 className="text-3xl font-semibold leading-[1.02] tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
+                        {value.title}
+                      </h3>
+
+                      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+                        {value.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h4 className="mt-5 text-lg font-semibold text-white">{x.title}</h4>
-                  <p className="mt-3 max-w-[22rem] text-sm leading-relaxed text-white/70">
-                    {x.desc}
-                  </p>
-                  </div>
-                  
-                </Reveal>
-              </div>
+                </article>
+              </AnotherReveal>
             ))}
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
@@ -512,7 +505,7 @@ export function WhoWeServeSection() {
           <Reveal>
             
 
-            <h3 className="mt-4 text-8xl leading-tight font-bold text-white sm:text-5xl">
+            <h3 className="mt-4 text-8xl leading-tight font-bold text-white sm:text-9xl">
               Clients
             </h3>
 

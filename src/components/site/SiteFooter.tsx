@@ -1,180 +1,89 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
-import { ArrowUpRightIcon, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
-
-function SocialIcon({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      aria-label={label}
-      target="_blank"
-      rel="noreferrer"
-      className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/70 backdrop-blur-md transition hover:border-white/20 hover:bg-white/[0.07] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#2f6bff]/50"
-    >
-      <span className="transition group-hover:scale-105">{children}</span>
-    </a>
-  );
-}
+import { ArrowUpRight } from "lucide-react";
 
 export default function SiteFooter() {
+  const leftLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about#services", label: "Services" },
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact Us" },
+    { href: "/team", label: "The Team" },
+
+  ];
+
+  
+
   return (
-    <footer className="relative border-t border-white/10 bg-ink">
-      {/* subtle top glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[radial-gradient(60%_120%_at_30%_0%,rgba(47,107,255,0.22)_0%,rgba(5,5,5,0)_70%)]" />
+    <footer className="bg-black text-white">
+      <Container className="py-14 sm:py-16 lg:py-20">
+        <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          {/* Left */}
+          <div>
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Impact through integrity
+            </h2>
 
-      <Container className="relative py-14">
-        <div className="grid gap-10 md:grid-cols-12">
-          {/* Brand */}
-          <div className="md:col-span-5">
-            <div className="flex flex-col items-start gap">
-                    <div className="relative h-[55px] w-[170px] sm:w-[200px]">
-                      <Image
-                        src="/brand/logo-1.png"
-                        alt="Elevare Conglomerate"
-                        fill
-                        priority
-                        className="object-contain object-left transition-opacity duration-200 group-hover:opacity-90"
-                        sizes="300px"
-                      />
-                    </div>
-            
-                    <p className="ml-5 text-[7px] tracking-[0.18em] text-white/100">
-                      IMPACT THROUGH INTEGRITY
-                    </p>
-                  </div>
-
-            
-
-            {/* Socials */}
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <SocialIcon href="https://www.linkedin.com" label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </SocialIcon>
-              <SocialIcon href="https://x.com" label="X">
-                <Twitter className="h-5 w-5" />
-              </SocialIcon>
-              <SocialIcon href="https://www.instagram.com" label="Instagram">
-                <Instagram className="h-5 w-5" />
-              </SocialIcon>
-              <SocialIcon href="https://www.facebook.com" label="Facebook">
-                <Facebook className="h-5 w-5" />
-              </SocialIcon>
-
-              <div className="ml-1 text-xs text-white">
-                Follow for updates & insights.
-              </div>
+            <div className="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-16">
+              <nav className="space-y-5">
+                {leftLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block flex items-center text-base text-white/85 transition hover:text-white"
+                  >
+                    {item.label} <ArrowUpRight />
+                  </Link>
+                ))}
+              </nav>
 
               
             </div>
 
-            <div className="text-xl mt-5 text-white">
+            {/* Disclaimer */}
+            <div className="mt-14 max-w-2xl">
+              <div className="text-sm font-medium text-white">
                 Disclaimer
-
-
               </div>
 
-
+              <p className="mt-3 text-sm leading-relaxed text-white/60">
               We do not provide financial advice or intermediary services as defined under 
               applicable financial services regulations. All services are limited to advisory, 
               support, and principal investing activities.
-          </div>
-
-          {/* Navigation */}
-          <div className="md:col-span-3">
-            <div className="text-xs uppercase tracking-[0.32em] text-white/60">
-              Pages
+              </p>
             </div>
-            <div className="mt-4 grid gap-2 text-sm">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/about", label: "About" },
-                { href: "/about#services", label: "Services" },
-                { href: "/team", label: "Team" },
-                { href: "/contact", label: "Contact" },
-                
 
+            {/* Bottom */}
+            <div className="mt-14 flex flex-col gap-3 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                © {new Date().getFullYear()} Elevare Conglomerate. All Rights
+                Reserved.
+              </div>
 
-              ].map((l) => (
+              <div>
+                Developed by{" "}
                 <Link
-                  key={l.href}
-                  className="w-fit flex gap-2 text-white/75 transition hover:text-white"
-                  href={l.href}
+                  href="https://thaboliz.co.za/services/technologies"
+                  className="text-white transition hover:text-white/70"
                 >
-                  {l.label}
-                  <ArrowUpRightIcon />
+                  Thaboliz Technologies
                 </Link>
-              ))}
+              </div>
             </div>
           </div>
 
-          {/* Contact */}
-          <div className="md:col-span-4">
-            <div className="text-xs uppercase tracking-[0.32em] text-white/60">
-              Contact
+          {/* Right */}
+          <div className="flex min-h-[260px] items-center justify-center lg:min-h-[420px] lg:justify-end">
+            <div className="relative h-[220px] w-full max-w-[320px] sm:h-[280px] sm:max-w-[420px] lg:h-[360px] lg:max-w-[520px]">
+              <Image
+                src="/brand/logo-2.png"
+                alt="Elevare Conglomerate"
+                fill
+                className="object-contain object-center"
+                sizes="(max-width: 1024px) 100vw, 520px"
+              />
             </div>
-
-            <div className="mt-4 space-y-2 text-sm text-white/75">
-  <a
-    className="block w-fit text-white/60 transition hover:text-white"
-    href="mailto:info@elevareconglomerate.co.za"
-  >
-    info@elevareconglomerate.co.za
-  </a>
-
-  {/* Phone slot */}
-  <a
-    className="block w-fit text-white/60 transition hover:text-white"
-    href="tel:+27123456789"
-  >
-    +27 12 345 6789
-  </a>
-
-  <a
-    className="block w-fit text-white/60 transition hover:text-white"
-    href="https://elevareconglomerate.co.za"
-    target="_blank"
-    rel="noreferrer"
-  >
-    elevareconglomerate.co.za
-  </a>
-</div>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <div>© {new Date().getFullYear()} Elevare Conglomerate (Pty) Ltd</div>
-
-          <p className="flex gap-1 text-nowrap text-white/55">
-            Developed by 
-            <Link
-            href={"https://thaboliz.co.za/services/technologies"}
-            className="text-blue-500 underline"
-          >
-            Thaboliz Technologies
-          </Link>
-          </p>
-
-          
-
-          <div className="flex flex-wrap items-center gap-4">
-            <Link className="text-white/50 hover:text-white/80" href="/privacy">
-              Privacy
-            </Link>
-            <Link className="text-white/50 hover:text-white/80" href="/terms">
-              Terms
-            </Link>
-            <div className="hidden h-3 w-px bg-white/15 md:block" />
-            
           </div>
         </div>
       </Container>

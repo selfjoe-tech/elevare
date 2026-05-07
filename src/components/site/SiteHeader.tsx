@@ -4,9 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
-import { ButtonLink } from "@/components/ui/button";
+import { Button, ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 import Image from "next/image";
+import { MenuIcon, MenuSquare } from "lucide-react";
 
 
 export default function SiteHeader() {
@@ -94,14 +95,14 @@ export default function SiteHeader() {
             </ButtonLink>
           </div>
 
-          <button
-            className="md:hidden rounded-xl border border-white/15 px-3 font-sans text-sm text-white/90"
+          <Button
+            className="md:hidden border  px-3 font-sans text-sm text-black/90"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Toggle menu"
           >
-            Menu
-          </button>
+            <MenuIcon className="h-7 w-7" strokeWidth={"4"} />
+          </Button>
         </Container>
 
         {open ? (
