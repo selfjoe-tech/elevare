@@ -1,5 +1,9 @@
 import "server-only";
 import nodemailer from "nodemailer";
+import * as React from "react";
+import { render } from "@react-email/render";
+import ContactConfirmationEmail from "../../emails/ContactConfirmationEmail";
+import InternalEnquiryEmail from "../../emails/InternalEnquiryEmail";
 
 type ContactEmailInput = {
   name: string;
@@ -11,9 +15,11 @@ type ContactEmailInput = {
 
 function requiredEnv(name: string): string {
   const value = process.env[name];
+
   if (!value) {
     throw new Error(`Missing environment variable: ${name}`);
   }
+
   return value;
 }
 
@@ -30,31 +36,50 @@ export async function sendContactEmail(input: ContactEmailInput) {
 
   const smtpFrom = process.env.SMTP_FROM ?? requiredEnv("SMTP_USER");
   const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "info@elevareconglomerate.co.za";
+  const confirmationFrom = process.env.CONFIRMATION_FROM ?? smtpFrom;
+  const websiteUrl = process.env.WEBSITE_URL ?? "https://elevareconglomerate.co.za";
+  const logoUrl = `${websiteUrl}/email/logo-1.png`;
 
-  const internalText = [
-    `New website enquiry from ${input.name}`,
-    "",
-    `Name: ${input.name}`,
-    `Email: ${input.email}`,
-    `Phone: ${input.phone}`,
-    `Company: ${input.company || "N/A"}`,
-    "",
-    "Message:",
-    input.message,
-  ].join("\n");
+  const internalHtml = await render(
+    React.createElement(InternalEnquiryEmail, {
+      ...input,
+      company: input.company || "N/A",
+      logoUrl,
+      websiteUrl,
+    })
+  );
+
+  const confirmationHtml = await render(
+    React.createElement(ContactConfirmationEmail, {
+      ...input,
+      company: input.company || "N/A",
+      logoUrl,
+      websiteUrl,
+    })
+  );
 
   await transporter.sendMail({
     from: `"Elevare Conglomerate Website" <${smtpFrom}>`,
     to: contactToEmail,
     replyTo: `"${input.name}" <${input.email}>`,
     subject: `New website enquiry from ${input.name}`,
-    text: internalText,
+    html: internalHtml,
+    text: [
+      `Name: ${input.name}`,
+      `Email: ${input.email}`,
+      `Phone: ${input.phone}`,
+      `Company: ${input.company || "N/A"}`,
+      "",
+      "Message:",
+      input.message,
+    ].join("\n"),
   });
 
   await transporter.sendMail({
-    from: `"Elevare Conglomerate" <${smtpFrom}>`,
+    from: `"Elevare Conglomerate" <${confirmationFrom}>`,
     to: input.email,
     subject: "We received your enquiry",
+    html: confirmationHtml,
     text: [
       `Hello ${input.name},`,
       "",
