@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import {
   Body,
   Container,
@@ -35,6 +36,7 @@ export default function ContactConfirmationEmail({
     const logoUrl = `${websiteUrl}/email/logo-1.png`;
     const heroImageUrl = `${websiteUrl}/email/pic-1.jpg`;
   return (
+    
     <Html lang="en">
       <Head />
       <Preview>We received your enquiry</Preview>

@@ -30,9 +30,12 @@ export default function InternalEnquiryEmail({
   phone,
   company,
   message,
-  logoUrl,
-  websiteUrl,
 }: Props) {
+
+    const websiteUrl = process.env.WEBSITE_URL ?? "https://elevareconglomerate.co.za";
+    const logoUrl = `${websiteUrl}/email/logo-1.png`;
+
+
   return (
     <Html lang="en">
       <Head />
@@ -40,7 +43,7 @@ export default function InternalEnquiryEmail({
       <Body style={styles.body}>
         <Container style={styles.outer}>
           <Section style={styles.logoWrap}>
-            <Img src={"/email/logo-1.png"} alt="Elevare Conglomerate" width="160" style={styles.logo} />
+            <Img src={logoUrl} alt="Elevare Conglomerate" width="160" style={styles.logo} />
           </Section>
 
           <Container style={styles.card}>
