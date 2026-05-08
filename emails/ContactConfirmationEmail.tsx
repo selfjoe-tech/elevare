@@ -127,7 +127,7 @@ heroImage: {
     padding: "32px 16px",
   },
   logoWrap: {
-    backgroundColor: "black",
+    backgroundColor: "blue",
     textAlign: "center" as const,
     padding: "16px",
     borderRadius: "2px"
